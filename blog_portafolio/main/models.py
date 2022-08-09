@@ -31,7 +31,7 @@ class UserProfile(models.Model):
     cv = models.FileField(blank=True, null=True, upload_to='cv')
 
     def __str__(self):
-        return f'{self.usuario.nombre} {self.usuario.apellido}'
+        return f'{self.usuario}'
 
 
 class ContactProfile(models.Model):
@@ -122,6 +122,7 @@ class Blog(models.Model):
     descripcion = models.CharField(max_length=500, blank=True, null=True)
     contenido = RichTextField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
+    es_activo = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
