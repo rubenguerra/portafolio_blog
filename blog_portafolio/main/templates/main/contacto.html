@@ -1,5 +1,10 @@
-{% load static %}
+{% extends 'main/base.html' %}
 
+
+{% block title %}Rubén - Contacto{% endblock %}
+
+{% block content %}
+{% load static %}
 <!-- Sección de contacto -->
     <section class="contact section" id="contact">
         <div class="container flex-center">
@@ -11,7 +16,7 @@
                     <ul class="contact-list">
                         <li>
                             <h3 class="item-title"><i class="fas fa-phone"></i> Teléfono</h3>
-                            <span>341-3212575</span>
+                            <span>341-32******</span>
                         </li>
                         <li>
                             <h3 class="item-title"><i class="fas fa-envelope"></i> Email</h3>
@@ -26,16 +31,17 @@
 
                 <div class="contact-right">
                     <p>Siempre dispuesto a discutir el diseño <br><span>de productos de calidad</span></p>
-                    <form action="" class="contact-form">
+                    <form action="/contacto/" class="contact-form" method="POST">
+                        {% csrf_token %}
                         <div class="first-row">
-                            <input type="text" placeholder="Nombre">
+                            {{form.nombre}}
                         </div>
                         <div class="second-row">
-                            <input type="email" name="Email" placeholder="Email">
-                            <input type="text" placeholder="Asunto">
+                            {{form.email}}
+
                         </div>
                         <div class="third-row">
-                            <textarea name="message" id="" rows="7" placeholder="Mensaje"></textarea>
+                            {{form.mensaje}}
                         </div>
                         <button class="btn" type="submit">Enviar mensaje <i class="fas fa-paper-plane"></i> </button>
                     </form>
@@ -45,3 +51,5 @@
 
         </div>
     </section>
+
+{% endblock %}

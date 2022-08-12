@@ -43,6 +43,7 @@ class ContactProfile(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     nombre = models.CharField(verbose_name='Nombre', max_length=100)
     email = models.EmailField(verbose_name='Email')
+
     mensaje = models.TextField(verbose_name='Message')
 
     def __str__(self):

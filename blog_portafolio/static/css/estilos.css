@@ -1152,7 +1152,7 @@ footer a{
 
     .nav-close-btn{
         position: absolute;
-        background: url();
+        background: url("../imagen/boton-x.png") no-repeat;
         filter: var(--color-filter);
         background-size: 12px;
         background-position: center;
@@ -1165,8 +1165,8 @@ footer a{
     }
 
     .nav-menu-btn{
-        background: url("/imagenes/barras.png") no-repeat;
-        filter: var(--color-filter);
+        background: url("../imagen/bar-menu.png") no-repeat;
+        filter: var(--first-color);
         background-size: 30px;
         background-position: center;
         width: 40px;

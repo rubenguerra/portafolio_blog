@@ -40,7 +40,7 @@
                     <a href="#skills">Habilidades</a>
                     <a href="#services">Servicios</a>
                     <a href="#portfolio">Portafolio</a>
-                    <a href="#contact">Contacto</a>
+                    <a href="{% url 'main:contacto' %}">Contacto</a>
                     <a href="#contact">Blog</a>
                 </div>
             </div>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="skills-info education-all">
                     <div class="education">
-                        <h4><label for="">Educación</label></h4>
+                        <h4><label>Educación</label></h4>
                         <ul class="edu-list">
                             <li class="item">
                                 <span class="year">2010-2014</span>
@@ -137,7 +137,7 @@
                         </ul>
                     </div>
                     <div class="education">
-                        <h4><label for="">Habilidades</label></h4>
+                        <h4><label>Habilidades</label></h4>
                         <ul class="bars">
                             <li class="bar">
                                 <div class="info">
@@ -191,7 +191,7 @@
                         </ul>
                     </div>
                     <div class="education">
-                        <h4><label for="">Reconocimientos</label></h4>
+                        <h4><label>Reconocimientos</label></h4>
                         <ul class="edu-list">
                             <li class="item">
                                 <span class="year">2021</span>
@@ -270,7 +270,7 @@
                         <div class="service-modal flex-center">
                             <div class="service-modal-body">
                                 <i class="fas fa-times modal-close-btn"></i>
-                                <h3>Diseños Ui/UX</h3>
+                                <h3>Diseños UI/UX</h3>
                                 <h4>Para qué sirven?</h4>
                                 <p>Los diseño de interfaces con mejores desempeños van a permiter proveer al sistema mucha información acerca de los intereses de cada uno de los usuarios, y por ende, de mejores herramientas de desarrollo.</p>
                                 <h4>Qué implica?</h4>
@@ -501,7 +501,7 @@
                             <h2>próximo proyecto</h2>
                         </div>
                         <div class="contact-btn">
-                            <a href="#contact" class="btn">A solo un click <i class="fas fa-paper-plane"></i></a>
+                            <a href="{% url 'main:contacto' %}" class="btn">A solo un click <i class="fas fa-paper-plane"></i></a>
                         </div>
 
                     </div>
@@ -509,7 +509,7 @@
             </div>
         </div>
 
-        <!-- Clientes -->
+        <!-- Certificados -->
         <!-- Podría poner aquí algunos certificados -->
         <div class="our-client sub-section">
             <div class="container flex-center">
@@ -574,51 +574,6 @@
         </div>
     </section>
 
-    <!-- Sección de contacto -->
-    <section class="contact section" id="contact">
-        <div class="container flex-center">
-            <h1 class="section-title-01">Contáctame</h1>
-            <h2 class="section-title-02">Contáctame</h2>
-            <div class="content">
-                <div class="contact-left">
-                    <h2>Discutamos algunos proyectos</h2>
-                    <ul class="contact-list">
-                        <li>
-                            <h3 class="item-title"><i class="fas fa-phone"></i> Teléfono</h3>
-                            <span>341-3212575</span>
-                        </li>
-                        <li>
-                            <h3 class="item-title"><i class="fas fa-envelope"></i> Email</h3>
-                            <span><a href="lcdorubenguerra@gmail.com">lcdorubenguerra@gmail.com</a></span>
-                        </li>
-                        <li>
-                            <h3 class="item-title"><i class="fas fa-map-marker-alt"></i> Dirección</h3>
-                            <span>Rosario, Santa Fe</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="contact-right">
-                    <p>Siempre dispuesto a discutir el diseño <br><span>de productos de calidad</span></p>
-                    <form action="" class="contact-form">
-                        <div class="first-row">
-                            <input type="text" placeholder="Nombre">
-                        </div>
-                        <div class="second-row">
-                            <input type="email" name="Email" placeholder="Email">
-                            <input type="text" placeholder="Asunto">
-                        </div>
-                        <div class="third-row">
-                            <textarea name="message" id="" rows="7" placeholder="Mensaje"></textarea>
-                        </div>
-                        <button class="btn" type="submit">Enviar mensaje <i class="fas fa-paper-plane"></i> </button>
-                    </form>
-                </div>
-            </div>
-
-            
-        </div>
-    </section>
 
     <!-- Footer -->
 <footer>
