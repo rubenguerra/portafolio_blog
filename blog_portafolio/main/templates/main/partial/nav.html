@@ -1,0 +1,19 @@
+{% load static %}
+ <!-- Encabezado -->
+    <header>
+        <div class="nav-bar">
+            <a href="#" class="logo">Rubén</a>
+            <div class="navigation">
+                <div class="nav-items">
+                    <div class="nav-close-btn"></div>
+                    <a class="active" href="{% url 'main:home' %}">Inicio</a>
+                    <a href="#">Sobre mí</a>
+                    <a href="#">Habilidades</a>
+                    <a href="#">Servicios</a>
+                    <a href="{% url 'main:portfolio' %}">Portafolio</a>
+                    <a href="{% url 'main:contacto' %}">Contacto</a>
+                </div>
+            </div>
+            <div class="nav-menu-btn"></div>
+        </div>
+    </header>

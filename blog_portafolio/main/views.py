@@ -37,11 +37,11 @@ class ContactView(generic.FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, "Gracias. Estaremos en contacto pronto.")
+        messages.success(self.request, "Gracias. Estaremos en contacto pronto...")
         return super().form_valid(form)
 
 
-class PortfolioView(generic.ListView):
+class PortfolioView(generic.TemplateView):
     modelo = Portfolio
     template_name = "main/portfolio.html"
     paginate_by = 10
