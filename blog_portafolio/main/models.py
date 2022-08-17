@@ -43,7 +43,6 @@ class ContactProfile(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     nombre = models.CharField(verbose_name='Nombre', max_length=100)
     email = models.EmailField(verbose_name='Email')
-
     mensaje = models.TextField(verbose_name='Message')
 
     def __str__(self):
@@ -146,6 +145,7 @@ class Certificado(models.Model):
     nombre = models.CharField(max_length=50, blank=True, null=True)
     titulo = models.CharField(max_length=200, blank=True, null=True)
     descripcion = models.CharField(max_length=500, blank=True, null=True)
+    imagen = models.ImageField(blank=True, null=True)
     es_activo = models.BooleanField(default=True)
 
     def __str__(self):
