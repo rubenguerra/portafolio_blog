@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block titulo %} Compartir post {% endblock %}
+
+{% block contenido %}
+
+<div class="contenedor">
+    {% if sent %}
+    <h2>E-mail enviado exitosamente</h2>
+    <p>
+        "{{ post.titulo }}" fue enviado exitosamente a {{ form.cleaned_data.a }}
+    </p>
+    {% else %}
+    <h2><span>Compartir "{{ post.titulo }}" al e-mail</span></h2>
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Compartir"></p>
+    </form>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}

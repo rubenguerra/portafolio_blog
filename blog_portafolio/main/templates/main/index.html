@@ -17,565 +17,598 @@
 </head>
 <body>
 
-    <!-- Botón hacia arriba -->
-    <div class="scrollToTop-btn flex-center">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+<!-- Botón hacia arriba -->
+<div class="scrollToTop-btn flex-center">
+    <i class="fas fa-arrow-up"></i>
+</div>
 
-    <!-- Botón de selección de color de tema -->
-    <div class="theme-btn flex-center">
-        <i class="fas fa-moon"></i>
-        <i class="fas fa-sun"></i>
-    </div>
+<!-- Botón de selección de color de tema -->
+<div class="theme-btn flex-center">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+</div>
 
-    <!-- Encabezado -->
-    <header>
-        <div class="nav-bar">
-            <a href="#" class="logo">Rubén</a>
-            <div class="navigation">
-                <div class="nav-items">
-                    <div class="nav-close-btn"></div>
-                    <a class="active" href="#home">Inicio</a>
-                    <a href="#about">Sobre mí</a>
-                    <a href="#skills">Habilidades</a>
-                    <a href="#services">Servicios</a>
-                    <a href="#portfolio">Portafolio</a>
-                    <a href="{% url 'main:contacto' %}">Contacto</a>
-                    <a href="#contact">Blog</a>
-                </div>
-            </div>
-            <div class="nav-menu-btn"></div>
-        </div>
-    </header>
-
-    <!-- Seccion Inicio -->
-
-    <section class="home" id="home">
-        <div class="home-container">
-            <div class="media-icons">
-                <a href="https:/www.facebook.com"><i class="fab fa-facebook-f"></i></a>
-                <a href=""><i class="fab fa-linkedin"></i></a>
-                <a href=""><i class="fab fa-github"></i></a>
-                <a href=""><i class="fab fa-whatsapp"></i></a>
-            </div>
-            <div class="info">
-                <h2>Hola, soy Rubén</h2>
-                <h3>Full stack developer Jr.</h3>
-                <p>Dame la oportunidad de aportar a tu empresa mis conocimientos y habilidades.</p>
-                <a href="#contact" class="btn">Contáctame <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-            <div class="home-img">
-                <img src="{% static 'imagen/ruben_transparencia.png' %}" alt="imagen">
+<!-- Encabezado -->
+<header>
+    <div class="nav-bar">
+        <a href="#" class="logo">Rubén</a>
+        <div class="navigation">
+            <div class="nav-items">
+                <div class="nav-close-btn"></div>
+                <a class="active" href="#home">Inicio</a>
+                <a href="#about">Sobre mí</a>
+                <a href="#skills">Habilidades</a>
+                <a href="#services">Servicios</a>
+                <a href="#portfolio">Portafolio</a>
+                <a href="{% url 'blog:contacto' %}">Contacto</a>
+                <a href="#contact">Blog</a>
             </div>
         </div>
+        <div class="nav-menu-btn"></div>
+    </div>
+</header>
+
+<!-- Seccion Inicio -->
+
+<section class="home" id="home">
+    <div class="home-container">
+        <div class="media-icons">
+            <a href="https:/www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+            <a href=""><i class="fab fa-linkedin"></i></a>
+            <a href=""><i class="fab fa-github"></i></a>
+            <a href=""><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="info">
+            <h2>Hola, soy Rubén</h2>
+            <h3>Full stack developer Jr.</h3>
+            <p>Dame la oportunidad de aportar a tu empresa mis conocimientos y habilidades.</p>
+            <a href="{% url 'blog:contacto' %}" class="btn">Contáctame <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+        <div class="home-img">
+            <img src="{% static 'imagen/ruben_transparencia.png' %}" alt="imagen">
+        </div>
+    </div>
 
 
-    </section>
+</section>
 
-    <!-- Seccion Acerca de -->
-    <section class="about section" id="about">
-        <div class="container flex-center">
-            <h1 class="section-title-01">Acerca de mí</h1>
-            <h2 class="section-title-02">Acerca de mí</h2>
-            <div class="content flex-center">
-                <div class="about-img">
-                    <img src="{% static 'imagen/rubenguerra.png' %}" alt="imagen2">
+<!-- Seccion Acerca de -->
+<section class="about section" id="about">
+    <div class="container flex-center">
+        <h1 class="section-title-01">Acerca de mí</h1>
+        <h2 class="section-title-02">Acerca de mí</h2>
+        <div class="content flex-center">
+            <div class="about-img">
+                <img src="{% static 'imagen/rubenguerra.png' %}" alt="imagen2">
+            </div>
+            <div class="about-info">
+                <div class="description">
+                    <h3>Me llamo Rubén Guerra</h3>
+                    <h4>En busca de nuevos <span>retos y desafíos</span> de aprendizaje</h4>
+                    <p>{{yo.userprofile.bio}}</p>
                 </div>
-                <div class="about-info">
-                    <div class="description">
-                        <h3>Me llamo Rubén Guerra</h3>
-                        <h4>En busca de nuevos <span>retos y desafíos</span>  de aprendizaje</h4>
-                        <p>Con años de experiencia en el diseño gráfico y edición, ahora incursiono en el diseño web, y la programación en la Inteligencia Artificial. Me interesa el desarrollo del machine learning y el deep learning, además del aprendizaje por reforzamiento, reforcement learning.</p>
-                    </div>
-                    <ul class="professional-list">
-                        <li class="list-item">
+                <ul class="professional-list">
+                    <li class="list-item">
                         <h3>5+</h3>
                         <span>Años de <br> Experiencia</span>
-                        </li>
-                        <li class="list-item">
-                            <h3>5+</h3>
-                       <span>Clientes <br> satisfechos</span>
-                        </li>
-                        <li class="list-item">
-                            <h3>5+</h3>
+                    </li>
+                    <li class="list-item">
+                        <h3>5+</h3>
+                        <span>Clientes <br> satisfechos</span>
+                    </li>
+                    <li class="list-item">
+                        <h3>5+</h3>
                         <span>Algunos <br> proyectos</span>
+                    </li>
+                </ul>
+                <a download href="{{yo.userprofile.cv.url}}" class="btn">Bajar CV <i class="fas fa-download"></i> </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de habilidades -->
+<section class="skills section" id="skills">
+    <div class="container flex-center">
+        <h1 class="section-title-01">Habilidades</h1>
+        <h2 class="section-title-02">Habilidades</h2>
+        <div class="content">
+            <div class="skills-description">
+                <h3>Formación académica y destrezas</h3>
+                <p>{{yo.userprofile.bio}}</p>
+            </div>
+            <div class="skills-info education-all">
+                <div class="education">
+                    <h4><label>Educación</label></h4>
+                    <ul class="edu-list">
+                        <li class="item">
+                            <span class="year">2010-2014</span>
+                            <p><span>Magister</span> en enseñanza del castellano y la lingüística.</p>
+                        </li>
+                        <li class="item">
+                            <span class="year">2004-2008</span>
+                            <p><span>Licenciado</span> en enseñanza del castellano y literatura.</p>
+                        </li>
+                        <li class="item">
+                            <span class="year">1997-2000</span>
+                            <p><span>Técnico</span> en informática.</p>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="education">
+                    <h4><label>Habilidades</label></h4>
+                    <ul class="bars">
+                        <li class="bar">
+                            <div class="info">
+                                <span>HTML</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="line html"></div>
+                        </li>
+                        <li class="bar">
+                            <div class="info">
+                                <span>CSS</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="line css"></div>
+                        </li>
+                        <li class="bar">
+                            <div class="info">
+                                <span>Javascript</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="line javascript"></div>
+                        </li>
+                        <li class="bar">
+                            <div class="info">
+                                <span>Python</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="line python"></div>
+                        </li>
+                        <li class="bar">
+                            <div class="info">
+                                <span>Django</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="line django"></div>
+                        </li>
+                        <li class="bar">
+                            <div class="info">
+                                <span>Machine learning</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="line machine"></div>
+                        </li>
+                        <li class="bar">
+                            <div class="info">
+                                <span>Deep learning con Tensorflow</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="line deep"></div>
                         </li>
                     </ul>
-                    <a href="#" class="btn">Bajar CV <i class="fas fa-download"></i> </a>
+                </div>
+                <div class="education">
+                    <h4><label>Reconocimientos</label></h4>
+                    <ul class="edu-list">
+                        <li class="item">
+                            <span class="year">2021</span>
+                            <p>Mejor <span>Desarrollador</span> - Universidad de Melbourne</p>
+                        </li>
+                        <li class="item">
+                            <span class="year">2020</span>
+                            <p>Mejor <span>Escritor</span> on line</p>
+                        </li>
+                        <li class="item">
+                            <span class="year">2019</span>
+                            <p>Mejor <span>Freelancer</span></p>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Sección de habilidades -->
-    <section class="skills section" id="skills">
-        <div class="container flex-center">
-            <h1 class="section-title-01">Habilidades</h1>
-            <h2 class="section-title-02">Habilidades</h2>
-            <div class="content">
-                <div class="skills-description">
-                    <h3>Formación académica y destrezas</h3>
-                    <p>Graduado en ciencias de la educación y la enseñanza de la lingüística, luego de retirarme de la enseñanza, me dediqué a poner en práctica y ampliar mis conocimientos de informática y programación, e incursioné en el área del diseño web y la inteligencia artificial.</p>
+            <div class="skills-description">
+                <h3>Experiencia laboral</h3>
+            </div>
+            <div class="skills-info">
+                <div class="experience-card">
+                    <div class="upper">
+                        <h3>Jefe editor</h3>
+                        <h5>Delegado de Publicaciones</h5>
+                        <span>2008-2018</span>
+                    </div>
+                    <div class="hr"></div>
+                    <h4><label>Universidad de Oriente, Venezuela</label></h4>
+                    <p>Encargado de la publicación y diseño de material bibliográfico de la Universidad de Oriente,
+                        Núcleo de Sucre</p>
                 </div>
-                <div class="skills-info education-all">
-                    <div class="education">
-                        <h4><label>Educación</label></h4>
-                        <ul class="edu-list">
-                            <li class="item">
-                                <span class="year">2010-2014</span>
-                                <p> <span>Magister</span> en enseñanza del castellano y la lingüística.</p>
-                            </li>
-                            <li class="item">
-                                <span class="year">2004-2008</span>
-                                <p> <span>Licenciado</span> en enseñanza del castellano y literatura.</p>
-                            </li>
-                            <li class="item">
-                                <span class="year">1997-2000</span>
-                                <p> <span>Técnico</span> en informática.</p>
-                            </li>
 
-                        </ul>
+                <div class="experience-card">
+                    <div class="upper">
+                        <h3>Profesor</h3>
+                        <h5>Profesor de castellano y literatura</h5>
+                        <span>2008-2009</span>
                     </div>
-                    <div class="education">
-                        <h4><label>Habilidades</label></h4>
-                        <ul class="bars">
-                            <li class="bar">
-                                <div class="info">
-                                    <span>HTML</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="line html"></div>
-                            </li>
-                            <li class="bar">
-                                <div class="info">
-                                    <span>CSS</span>
-                                    <span>70%</span>
-                                </div>
-                                <div class="line css"></div>
-                            </li>
-                            <li class="bar">
-                                <div class="info">
-                                    <span>Javascript</span>
-                                    <span>75%</span>
-                                </div>
-                                <div class="line javascript"></div>
-                            </li>
-                            <li class="bar">
-                                <div class="info">
-                                    <span>Python</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="line python"></div>
-                            </li>
-                            <li class="bar">
-                                <div class="info">
-                                    <span>Django</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="line django"></div>
-                            </li>
-                            <li class="bar">
-                                <div class="info">
-                                    <span>Machine learning</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="line machine"></div>
-                            </li>
-                            <li class="bar">
-                                <div class="info">
-                                    <span>Deep learning con Tensorflow</span>
-                                    <span>80%</span>
-                                </div>
-                                <div class="line deep"></div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="education">
-                        <h4><label>Reconocimientos</label></h4>
-                        <ul class="edu-list">
-                            <li class="item">
-                                <span class="year">2021</span>
-                                <p>Mejor <span>Desarrollador</span> - Universidad de Melbourne</p>
-                            </li>
-                            <li class="item">
-                                <span class="year">2020</span>
-                                <p>Mejor <span>Escritor</span> on line</p>
-                            </li>
-                            <li class="item">
-                                <span class="year">2019</span>
-                                <p>Mejor <span>Freelancer</span></p>
-                            </li>
-                        </ul>
-                    </div>
+                    <div class="hr"></div>
+                    <h4><label>Liceo "Caigüire"</label></h4>
+                    <p>Profesor de aula de los últimos años de educacion secundaria, en el área de castellano y
+                        literatura</p>
                 </div>
-                <div class="skills-description">
-                    <h3>Experiencia laboral</h3>
+
+                <div class="experience-card">
+                    <div class="upper">
+                        <h3>Diagramador</h3>
+                        <h5>Diseño y diagramación</h5>
+                        <span>1995-2008</span>
+                    </div>
+                    <div class="hr"></div>
+                    <h4><label>Universidad de Oriente, Venezuela</label></h4>
+                    <p>Diseñador y diagramador de contenido de material bibliográfico producido por la Universidad.</p>
                 </div>
-                <div class="skills-info">
-                    <div class="experience-card">
-                        <div class="upper">
-                            <h3>Jefe editor</h3>
-                            <h5>Delegado de Publicaciones</h5>
-                            <span>2008-2018</span>
-                        </div>
-                        <div class="hr"></div>
-                        <h4><label>Universidad de Oriente, Venezuela</label></h4>
-                        <p>Encargado de la publicación y diseño de material bibliográfico de la Universidad de Oriente, Núcleo de Sucre</p>
-                    </div>
 
-                    <div class="experience-card">
-                        <div class="upper">
-                            <h3>Profesor</h3>
-                            <h5>Profesor de castellano y literatura</h5>
-                            <span>2008-2009</span>
-                        </div>
-                        <div class="hr"></div>
-                        <h4><label>Liceo "Caigüire"</label></h4>
-                        <p>Profesor de aula de los últimos años de educacion secundaria, en el área de castellano y literatura</p>
-                    </div>
-
-                    <div class="experience-card">
-                        <div class="upper">
-                            <h3>Diagramador</h3>
-                            <h5>Diseño y diagramación</h5>
-                            <span>1995-2008</span>
-                        </div>
-                        <div class="hr"></div>
-                        <h4><label>Universidad de Oriente, Venezuela</label></h4>
-                        <p>Diseñador y diagramador de contenido de material bibliográfico producido por la Universidad.</p>
-                    </div>
-
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Sección Servicios -->
+<!-- Sección Servicios -->
 
-    <section class="services section" id="services">
-        <div class="container flex-center">
-            <h1 class="section-title-01">Servicios</h1>
-            <h2 class="section-title-02">Servicios</h2>
-            <div class="content">
-                <div class="services-description">
-                    <h3>Qué servicios proveo</h3>
-                </div>
-                <ul class="service-list">
-                    <li class="service-container">
-                        <div class="service-card">
-                            <i class="fas fa-pencil-ruler"></i>
+<section class="services section" id="services">
+    <div class="container flex-center">
+        <h1 class="section-title-01">Servicios</h1>
+        <h2 class="section-title-02">Servicios</h2>
+        <div class="content">
+            <div class="services-description">
+                <h3>Qué servicios proveo</h3>
+            </div>
+            <ul class="service-list">
+                <li class="service-container">
+                    <div class="service-card">
+                        <i class="fas fa-pencil-ruler"></i>
+                        <h3>Diseños UI/UX</h3>
+                        <div class="learn-more-btn">Aprender más <i class="fas fa-long-arrow-alt-right"></i></div>
+                    </div>
+                    <div class="service-modal flex-center">
+                        <div class="service-modal-body">
+                            <i class="fas fa-times modal-close-btn"></i>
                             <h3>Diseños UI/UX</h3>
-                            <div class="learn-more-btn">Aprender más <i class="fas fa-long-arrow-alt-right"></i> </div>
+                            <h4>Para qué sirven?</h4>
+                            <p>Los diseño de interfaces con mejores desempeños van a permiter proveer al sistema mucha
+                                información acerca de los intereses de cada uno de los usuarios, y por ende, de mejores
+                                herramientas de desarrollo.</p>
+                            <h4>Qué implica?</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Mejores métodos de comunicación</li>
+                                <li><i class="fas fa-check-circle"></i> Mejor sistema de recopilación de información
+                                </li>
+                                <li><i class="fas fa-check-circle"></i> Análisis de necesidades</li>
+                                <li><i class="fas fa-check-circle"></i> Ahorro de recursos</li>
+
+                            </ul>
                         </div>
-                        <div class="service-modal flex-center">
-                            <div class="service-modal-body">
-                                <i class="fas fa-times modal-close-btn"></i>
-                                <h3>Diseños UI/UX</h3>
-                                <h4>Para qué sirven?</h4>
-                                <p>Los diseño de interfaces con mejores desempeños van a permiter proveer al sistema mucha información acerca de los intereses de cada uno de los usuarios, y por ende, de mejores herramientas de desarrollo.</p>
-                                <h4>Qué implica?</h4>
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Mejores métodos de comunicación</li>
-                                    <li><i class="fas fa-check-circle"></i> Mejor sistema de recopilación de información</li>
-                                    <li><i class="fas fa-check-circle"></i> Análisis de necesidades</li>
-                                    <li><i class="fas fa-check-circle"></i> Ahorro de recursos</li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
+                    </div>
+                </li>
 
 
-                    <li class="service-container">
-                        <div class="service-card">
-                            <i class="fas fa-photo-video"></i>
+                <li class="service-container">
+                    <div class="service-card">
+                        <i class="fas fa-photo-video"></i>
+                        <h3>Branding & desing</h3>
+                        <div class="learn-more-btn">Aprender más <i class="fas fa-long-arrow-alt-right"></i></div>
+                    </div>
+                    <div class="service-modal flex-center">
+                        <div class="service-modal-body">
+                            <i class="fas fa-times modal-close-btn"></i>
                             <h3>Branding & desing</h3>
-                            <div class="learn-more-btn">Aprender más <i class="fas fa-long-arrow-alt-right"></i> </div>
+                            <h4>Qué es Brand & desing?</h4>
+                            <p>Puede ser definido como una de las prácticas más importantes en la práctica de mercadeo
+                                por medio de la creación del nombre, logo, diseño y elementos simbólicos relacionados
+                                con la identidad distintiva de una empresa y sus productos.</p>
+                            <h4>Qué proveemos?</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Diseño de logos</li>
+                                <li><i class="fas fa-check-circle"></i> Diseño de emblemas</li>
+                                <li><i class="fas fa-check-circle"></i> Paquetes visuales de identidad</li>
+                                <li><i class="fas fa-check-circle"></i> Tarjetas de negocios y sistemas</li>
+
+                            </ul>
                         </div>
-                        <div class="service-modal flex-center">
-                            <div class="service-modal-body">
-                                <i class="fas fa-times modal-close-btn"></i>
-                                <h3>Branding & desing</h3>
-                                <h4>Qué es Brand & desing?</h4>
-                                <p>Puede ser definido como una de las prácticas más importantes en la práctica de mercadeo por medio de la creación del nombre, logo, diseño y elementos simbólicos relacionados con la identidad distintiva de una empresa y sus productos.</p>
-                                <h4>Qué proveemos?</h4>
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Diseño de logos</li>
-                                    <li><i class="fas fa-check-circle"></i> Diseño de emblemas</li>
-                                    <li><i class="fas fa-check-circle"></i> Paquetes visuales de identidad</li>
-                                    <li><i class="fas fa-check-circle"></i> Tarjetas de negocios y sistemas</li>
+                    </div>
+                </li>
 
-                                </ul>
-                            </div>
+
+                <li class="service-container">
+                    <div class="service-card">
+                        <i class="fas fa-file-code"></i>
+                        <h3>Desarrollo WEB</h3>
+                        <div class="learn-more-btn">Aprender más <i class="fas fa-long-arrow-alt-right"></i></div>
+                    </div>
+                    <div class="service-modal flex-center">
+                        <div class="service-modal-body">
+                            <i class="fas fa-times modal-close-btn"></i>
+                            <h3>Full Stack Development</h3>
+                            <h4>Qué es Full stack Development?</h4>
+                            <p>Los servicios de un full stack Development están dirigidos a diseñar, construir, mantener
+                                y administrar todo aquello que implique el software de una página web.</p>
+                            <h4>Qué Proveemos?</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Desarrollo de aplicaciones web</li>
+                                <li><i class="fas fa-check-circle"></i> Testing</li>
+                                <li><i class="fas fa-check-circle"></i> Mantenimiento</li>
+
+                            </ul>
                         </div>
-                    </li>
+                    </div>
+                </li>
 
 
-                    <li class="service-container">
-                        <div class="service-card">
-                            <i class="fas fa-file-code"></i>
-                            <h3>Desarrollo WEB</h3>
-                            <div class="learn-more-btn">Aprender más <i class="fas fa-long-arrow-alt-right"></i> </div>
-                        </div>
-                        <div class="service-modal flex-center">
-                            <div class="service-modal-body">
-                                <i class="fas fa-times modal-close-btn"></i>
-                                <h3>Full Stack Development</h3>
-                                <h4>Qué es Full stack Development?</h4>
-                                <p>Los servicios de un full stack Development están dirigidos a diseñar, construir, mantener y administrar todo aquello que implique el software de una página web.</p>
-                                <h4>Qué Proveemos?</h4>
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Desarrollo de aplicaciones web</li>
-                                    <li><i class="fas fa-check-circle"></i> Testing</li>
-                                    <li><i class="fas fa-check-circle"></i> Mantenimiento</li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-
-                    <li class="service-container">
-                        <div class="service-card">
-                            <i class="fas fa-align-left"></i>
+                <li class="service-container">
+                    <div class="service-card">
+                        <i class="fas fa-align-left"></i>
+                        <h3>Escritor de contenido</h3>
+                        <div class="learn-more-btn">Aprender más <i class="fas fa-long-arrow-alt-right"></i></div>
+                    </div>
+                    <div class="service-modal flex-center">
+                        <div class="service-modal-body">
+                            <i class="fas fa-times modal-close-btn"></i>
                             <h3>Escritor de contenido</h3>
-                            <div class="learn-more-btn">Aprender más <i class="fas fa-long-arrow-alt-right"></i> </div>
+                            <h4>Qué es un Escritor de contenido?</h4>
+                            <p>Planea, escribe y edita contenido web, casi siempre con propósitos de marqueting
+                                digital</p>
+                            <h4>Qué Proveemos?</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Contenido escrito para la web</li>
+                                <li><i class="fas fa-check-circle"></i> Escritura de blog para sitios web</li>
+                                <li><i class="fas fa-check-circle"></i> Contenido para las redes sociales</li>
+
+                            </ul>
                         </div>
-                        <div class="service-modal flex-center">
-                            <div class="service-modal-body">
-                                <i class="fas fa-times modal-close-btn"></i>
-                                <h3>Escritor de contenido</h3>
-                                <h4>Qué es un Escritor de contenido?</h4>
-                                <p>Planea, escribe y edita contenido web, casi siempre con propósitos de marqueting digital</p>
-                                <h4>Qué Proveemos?</h4>
-                                <ul>
-                                    <li><i class="fas fa-check-circle"></i> Contenido escrito para la web</li>
-                                    <li><i class="fas fa-check-circle"></i> Escritura de blog para sitios web</li>
-                                    <li><i class="fas fa-check-circle"></i> Contenido para las redes sociales</li>
+                    </div>
+                </li>
 
-                                </ul>
-                            </div>
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Sección de PortaFolio -->
+<section class="portfolio section" id="portfolio">
+    <div class="container flex-center">
+        <h1 class="section-title-01">Portafolio</h1>
+        <h2 class="section-title-02">Portafolio</h2>
+        <div class="content">
+            <div class="portfolio-list">
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Diseño Web</h3>
+                            <span>Youtube</span>
                         </div>
-                    </li>
+                        <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen1">
+                    </div>
+                    <div class="portfolio-model flex-center">
+                        <div class="portfolio-model-body">
+                            <i class="fas fa-times portfolio-close-btn"></i>
+                            <h3>Diseño WEB</h3>
+                            <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen2">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos
+                                perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio
+                                exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Diseño Web</h3>
+                            <span>Youtube</span>
+                        </div>
+                        <img src="{% static 'imagen/2022-03-27.png' %}" alt="imagen1">
+                    </div>
+                    <div class="portfolio-model flex-center">
+                        <div class="portfolio-model-body">
+                            <i class="fas fa-times portfolio-close-btn"></i>
+                            <h3>Diseño WEB</h3>
+                            <img src="{% static 'imagen/2022-03-27.png' %}" alt="imagen2">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos
+                                perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio
+                                exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Diseño Web</h3>
+                            <span>Youtube</span>
+                        </div>
+                        <img src="{% static 'imagen/jaguarete.png' %}" alt="imagen1">
+                    </div>
+                    <div class="portfolio-model flex-center">
+                        <div class="portfolio-model-body">
+                            <i class="fas fa-times portfolio-close-btn"></i>
+                            <h3>Diseño WEB</h3>
+                            <img src="{% static 'imagen/jaguarete.png' %}" alt="imagen2">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos
+                                perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio
+                                exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
+                        </div>
+                    </div>
+                </div>
 
-                </ul>
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Diseño Web</h3>
+                            <span>Youtube</span>
+                        </div>
+                        <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen1">
+                    </div>
+                    <div class="portfolio-model flex-center">
+                        <div class="portfolio-model-body">
+                            <i class="fas fa-times portfolio-close-btn"></i>
+                            <h3>Diseño WEB</h3>
+                            <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen2">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos
+                                perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio
+                                exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Diseño Web</h3>
+                            <span>Youtube</span>
+                        </div>
+                        <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen1">
+                    </div>
+                    <div class="portfolio-model flex-center">
+                        <div class="portfolio-model-body">
+                            <i class="fas fa-times portfolio-close-btn"></i>
+                            <h3>Diseño WEB</h3>
+                            <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen2">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos
+                                perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio
+                                exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="img-card-container">
+                    <div class="img-card">
+                        <div class="overlay"></div>
+                        <div class="info">
+                            <h3>Diseño Web</h3>
+                            <span>Youtube</span>
+                        </div>
+                        <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen1">
+                    </div>
+                    <div class="portfolio-model flex-center">
+                        <div class="portfolio-model-body">
+                            <i class="fas fa-times portfolio-close-btn"></i>
+                            <h3>Diseño WEB</h3>
+                            <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen2">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos
+                                perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio
+                                exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Sección de PortaFolio -->
-    <section class="portfolio section" id="portfolio">
+    <!-- Subsección Con un toque -->
+    <div class="get-in-touch subsection">
+        <div class="container">
+            <div class="content flex-center">
+                <div class="contact-card flex-center">
+
+                    <div class="title">
+                        <h4>Hablemos</h4>
+                        <h3>Sobre su</h3>
+                        <h2>próximo proyecto</h2>
+                    </div>
+                    <div class="contact-btn">
+                        <a href="{% url 'blog:contacto' %}" class="btn">A solo un click <i
+                                class="fas fa-paper-plane"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Certificados -->
+    <!-- Podría poner aquí algunos certificados -->
+    <div class="our-client sub-section">
         <div class="container flex-center">
-            <h1 class="section-title-01">Portafolio</h1>
-            <h2 class="section-title-02">Portafolio</h2>
+            <h1 class="section-title-01">Algunos cursos</h1>
+            <h2 class="section-title-02">Algunos cursos</h2>
             <div class="content">
-                <div class="portfolio-list">
-                    <div class="img-card-container">
-                        <div class="img-card">
-                            <div class="overlay"></div>
-                            <div class="info">
-                                <h3>Diseño Web</h3>
-                                <span>Youtube</span>
-                            </div>
-                            <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen1">
-                        </div>
-                        <div class="portfolio-model flex-center">
-                            <div class="portfolio-model-body">
-                                <i class="fas fa-times portfolio-close-btn"></i>
-                                <h3>Diseño WEB</h3>
-                                <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="img-card-container">
-                        <div class="img-card">
-                            <div class="overlay"></div>
-                            <div class="info">
-                                <h3>Diseño Web</h3>
-                                <span>Youtube</span>
-                            </div>
-                            <img src="{% static 'imagen/2022-03-27.png' %}" alt="imagen1">
-                        </div>
-                        <div class="portfolio-model flex-center">
-                            <div class="portfolio-model-body">
-                                <i class="fas fa-times portfolio-close-btn"></i>
-                                <h3>Diseño WEB</h3>
-                                <img src="{% static 'imagen/2022-03-27.png' %}" alt="imagen2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="img-card-container">
-                        <div class="img-card">
-                            <div class="overlay"></div>
-                            <div class="info">
-                                <h3>Diseño Web</h3>
-                                <span>Youtube</span>
-                            </div>
-                            <img src="{% static 'imagen/jaguarete.png' %}" alt="imagen1">
-                        </div>
-                        <div class="portfolio-model flex-center">
-                            <div class="portfolio-model-body">
-                                <i class="fas fa-times portfolio-close-btn"></i>
-                                <h3>Diseño WEB</h3>
-                                <img src="{% static 'imagen/jaguarete.png' %}" alt="imagen2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="img-card-container">
-                        <div class="img-card">
-                            <div class="overlay"></div>
-                            <div class="info">
-                                <h3>Diseño Web</h3>
-                                <span>Youtube</span>
-                            </div>
-                            <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen1">
-                        </div>
-                        <div class="portfolio-model flex-center">
-                            <div class="portfolio-model-body">
-                                <i class="fas fa-times portfolio-close-btn"></i>
-                                <h3>Diseño WEB</h3>
-                                <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="img-card-container">
-                        <div class="img-card">
-                            <div class="overlay"></div>
-                            <div class="info">
-                                <h3>Diseño Web</h3>
-                                <span>Youtube</span>
-                            </div>
-                            <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen1">
-                        </div>
-                        <div class="portfolio-model flex-center">
-                            <div class="portfolio-model-body">
-                                <i class="fas fa-times portfolio-close-btn"></i>
-                                <h3>Diseño WEB</h3>
-                                <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="img-card-container">
-                        <div class="img-card">
-                            <div class="overlay"></div>
-                            <div class="info">
-                                <h3>Diseño Web</h3>
-                                <span>Youtube</span>
-                            </div>
-                            <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen1">
-                        </div>
-                        <div class="portfolio-model flex-center">
-                            <div class="portfolio-model-body">
-                                <i class="fas fa-times portfolio-close-btn"></i>
-                                <h3>Diseño WEB</h3>
-                                <img src="{% static 'imagen/estudio_creat.png' %}" alt="imagen2">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus vitae, est iste eos perspiciatis tempora deleniti ipsa molestiae ipsam veritatis eveniet nisi optio exercitationem maxime iusto aspernatur aliquam dolor tempore?</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Subsección Con un toque -->
-        <div class="get-in-touch subsection">
-            <div class="container">
-                <div class="content flex-center">
-                    <div class="contact-card flex-center">
-
-                        <div class="title">
-                            <h4>Hablemos</h4>
-                            <h3>Sobre su</h3>
-                            <h2>próximo proyecto</h2>
-                        </div>
-                        <div class="contact-btn">
-                            <a href="{% url 'main:contacto' %}" class="btn">A solo un click <i class="fas fa-paper-plane"></i></a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Certificados -->
-        <!-- Podría poner aquí algunos certificados -->
-        <div class="our-client sub-section">
-            <div class="container flex-center">
-                <h1 class="section-title-01">Algunos cursos</h1>
-                <h2 class="section-title-02">Algunos cursos</h2>
-                <div class="content">
-                    <div class="swiper client-swiper">
-                        <div class="swiper-wrapper">
-                          <div class="swiper-slide flex-center">
-                              <div class="client-img"> <!-- Imágenes de certificados -->
-                                  <img src="{% static 'imagen/Ruben Guerra - Feature Engineering.png' %}" alt="certificado">
-                              </div>
-                              <div class="client-details">
-                                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus reiciendis quibusdam quia vel corrupti odit atque neque, expedita amet ad delectus unde! Perferendis, ipsa! Placeat consectetur atque minima unde harum!</p>
-
-                              </div>
-                          </div>
-
-                          <div class="swiper-slide flex-center">
+                <div class="swiper client-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide flex-center">
                             <div class="client-img"> <!-- Imágenes de certificados -->
-                                <img src="{% static 'imagen/Ruben Guerra - Intermediate Machine Learning.png' %}" alt="certificado">
+                                <img src="{% static 'imagen/Ruben Guerra - Feature Engineering.png' %}"
+                                     alt="certificado">
                             </div>
                             <div class="client-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus reiciendis quibusdam quia vel corrupti odit atque neque, expedita amet ad delectus unde! Perferendis, ipsa! Placeat consectetur atque minima unde harum!</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus reiciendis
+                                    quibusdam quia vel corrupti odit atque neque, expedita amet ad delectus unde!
+                                    Perferendis, ipsa! Placeat consectetur atque minima unde harum!</p>
 
                             </div>
                         </div>
 
                         <div class="swiper-slide flex-center">
                             <div class="client-img"> <!-- Imágenes de certificados -->
-                                <img src="{% static 'imagen/Ruben Guerra - Intro to Game AI and Reinforcement Learning.png' %}" alt="certificado">
+                                <img src="{% static 'imagen/Ruben Guerra - Intermediate Machine Learning.png' %}"
+                                     alt="certificado">
                             </div>
                             <div class="client-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus reiciendis quibusdam quia vel corrupti odit atque neque, expedita amet ad delectus unde! Perferendis, ipsa! Placeat consectetur atque minima unde harum!</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus reiciendis
+                                    quibusdam quia vel corrupti odit atque neque, expedita amet ad delectus unde!
+                                    Perferendis, ipsa! Placeat consectetur atque minima unde harum!</p>
 
                             </div>
                         </div>
 
                         <div class="swiper-slide flex-center">
                             <div class="client-img"> <!-- Imágenes de certificados -->
-                                <img src="{% static 'imagen/Ruben Guerra - Machine Learning Explainability.png' %}" alt="certificado">
+                                <img src="{% static 'imagen/Ruben Guerra - Intro to Game AI and Reinforcement Learning.png' %}"
+                                     alt="certificado">
                             </div>
                             <div class="client-details">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus reiciendis quibusdam quia vel corrupti odit atque neque, expedita amet ad delectus unde! Perferendis, ipsa! Placeat consectetur atque minima unde harum!</p>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus reiciendis
+                                    quibusdam quia vel corrupti odit atque neque, expedita amet ad delectus unde!
+                                    Perferendis, ipsa! Placeat consectetur atque minima unde harum!</p>
 
                             </div>
                         </div>
 
-                        </div>
-                        <div class="swiper-button-next">
-                            <i class="fas fa-chevron-right"></i>
-                        </div>
-                        <div class="swiper-button-prev">
-                            <i class="fas fa-chevron-left"></i>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                      </div>
+                        <div class="swiper-slide flex-center">
+                            <div class="client-img"> <!-- Imágenes de certificados -->
+                                <img src="{% static 'imagen/Ruben Guerra - Machine Learning Explainability.png' %}"
+                                     alt="certificado">
+                            </div>
+                            <div class="client-details">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus reiciendis
+                                    quibusdam quia vel corrupti odit atque neque, expedita amet ad delectus unde!
+                                    Perferendis, ipsa! Placeat consectetur atque minima unde harum!</p>
 
+                            </div>
+                        </div>
 
+                    </div>
+                    <div class="swiper-button-next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
+
+
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <!-- Footer -->
+<!-- Footer -->
 <footer>
     <div class="footer-container">
         <div class="about group">
@@ -609,10 +642,10 @@
     </div>
 </footer>
 
-    <!-- Sección de scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
+<!-- Sección de scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
 
-    <script src="{% static 'js/principal.js' %}"></script>
+<script src="{% static 'js/principal.js' %}"></script>
 
 </body>
 </html>

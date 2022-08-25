@@ -1,0 +1,33 @@
+<div class="contenedor">
+
+    {% with comentarios.count as total_comentarios %}
+    <h2>
+        <span>{{ total_comentarios }} comentario{{ total_comentarios|pluralize }}</span>
+    </h2>
+    {% endwith %}
+
+    {% for comentario in comentarios %}
+    <div class="comentario">
+                 <span>
+                Comentario {{ forloop.counter }} por {{ comentario.nombre }}
+                {{ comentario.creado }}
+
+                {{ comentario.contenido|linebreaks }}
+                 </span>
+    </div>
+    {% empty %}
+    <p>No hay ningún comentario aún.</p>
+    {% endfor %}
+
+    {% if nuevo_comentario %}
+    <h2>Tu comentario ha sido añadido.</h2>
+    {% else %}
+    <h2><span>Añade un nuevo comentario.</span></h2>
+    <form method="post">
+        {{ comentario_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Agregar"></p>
+    </form>
+    {% endif %}
+
+</div>

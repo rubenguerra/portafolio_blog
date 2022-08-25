@@ -1,0 +1,18 @@
+<div class="pagination flex-row">
+    <!-- <a href="#"><i class="fas fa-chevron-left"></i></a> -->
+    <span>Página {{ posts.number }} de {{ posts.paginator.num_pages }}&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+    {% if posts.has_previous %}
+    <br>
+    <li>
+        <a href="?page={{ posts.previous_page_number }}" class="pages">{{ posts.previous_page_number }}</a>
+    </li>
+    {% endif %}
+
+    {% if posts.has_next %}
+    <br>
+    <li>
+        <a href="?page={{ posts.next_page_number }}" class="pages">{{ posts.next_page_number }}</a>
+    </li>
+    {% endif %}
+</div>

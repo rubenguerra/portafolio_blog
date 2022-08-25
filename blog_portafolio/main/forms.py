@@ -1,3 +1,5 @@
+"""
+
 from django import forms
 from .models import ContactProfile
 
@@ -20,3 +22,4 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactProfile
         fields = ('nombre', 'email', 'mensaje',)
+"""

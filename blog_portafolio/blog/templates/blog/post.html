@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %} {{ post.titulo  }} | BLOG IA {% endblock titulo %}
+
+{% block contenido %}
+
+<!-- Contenido-------------------->
+
+<section class="contenedor">
+    <div class="site-content">
+        <div class="posts">
+            <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                <div class="post-image">
+                    <div>
+                        <img class="img" src="{{ post.imagen_referencial.url }}" alt="post">
+                    </div>
+                    <div class="post-info flex-row">
+                        <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{ post.autor.nombre }}</span>
+                        <span><i
+                                class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{ post.fecha_publicacion }}</span>
+                        <span>{{ post.comentarios }}</span> <!-- Corregir aqui el numero de comentarios-->
+                    </div>
+                </div>
+
+                <div class="post-title">
+                    <a href="#">{{ post.titulo }}</a>
+                    <p>{{ post.descripcion }}</p>
+                    <p class="tags">Etiquetas: {{ post.tags.all|join:", " }}</p>
+
+                    <hr>
+
+                    <div class="contenedor">
+                        <article>
+                            <p>
+                                {{ post.contenido | safe }}
+                            </p>
+                        </article>
+                        <div class="popular-tags">
+                            <h2>Etiquetas</h2>
+                            <div class="tags flex-row">
+                                <span class="tag" data-aos="flip-up" data-aos-delay="100">Algoritmos</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="200">Tecnología</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="300">NLP</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="400">Inteligencia</span>
+
+                            </div>
+                        </div>
+                        <hr>
+
+                        {% include "comentarios.html" %}
+
+                        <!-- Comentario prueba
+                        <div class="newsletter" data-aos="fade-up" data-aos-delay="200">
+                            <h2>Comentar</h2>
+                            <div class="form-element">
+                                <input type="text" class="input-element" placeholder="Email">
+                                <button class="btn form-btn">Enviar comentario</button>
+                            </div>
+                        </div>
+                        --->
+                        <hr>
+                        <p>
+                            <a href="{% url 'base:post_share' post.id %}">
+                                <span>Compartir este post</span>
+                            </a>
+
+                        </p>
+                        <hr>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <aside class="sidebar">
+            <div class="category">
+                <h2>Temas</h2>
+                <ul class="category-list">
+                    <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                        <a href="#">NLP</a>
+                        <span>(05)</span>
+                    </li>
+                    <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                        <a href="#">Deep Learning</a>
+                        <span>(05)</span>
+                    </li>
+                    <li class="list-items" data-aos="fade-left" data-aos-delay="300">
+                        <a href="#">Machine Learning</a>
+                        <span>(05)</span>
+                    </li>
+                    <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                        <a href="#">Algoritmos</a>
+                        <span>(05)</span>
+                    </li>
+                    <li class="list-items" data-aos="fade-left" data-aos-delay="500">
+                        <a href="#">Deep Learning</a>
+                        <span>(05)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="popular-post">
+                <h2>Más populares</h2>
+                <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static '/insumos/Blog-post/post-robot10.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
+
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                        2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
+
+                    <div class="post-title">
+                        <a href="#">Las matemáticas de la inteligencia artificial</a>
+                    </div>
+
+                </div>
+                <div class="post-content" data-aos="flip-up" data-aos-delay="300">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static '/insumos/imagen_principal.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
+
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                        2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
+
+                    <div class="post-title">
+                        <a href="#">¿Necesitamos de la estadística?</a>
+                    </div>
+
+                </div>
+                <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static './insumos/Blog-post/post-robot3.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
+
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                        2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
+
+                    <div class="post-title">
+                        <a href="#">La transformada de Fourier en el ambito académico</a>
+                    </div>
+
+                </div>
+                <div class="post-content" data-aos="flip-up" data-aos-delay="500">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static './insumos/Blog-post/post-robot9.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
+
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                        2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
+
+                    <div class="post-title">
+                        <a href="#">La validación cruzada y su implementación</a>
+                    </div>
+
+                </div>
+                <div class="post-content" data-aos="flip-up" data-aos-delay="600">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static './insumos/Blog-post/post-robot1.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
+
+                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                        2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
+
+                    <div class="post-title">
+                        <a href="#">Un problema de métricas</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="newsletter" data-aos="fade-up" data-aos-delay="200">
+                <h2>Mensajes</h2>
+                <div class="form-element">
+                    <input type="text" class="input-element" placeholder="Email">
+                    <button class="btn form-btn">Suscríbete</button>
+                </div>
+            </div>
+            <div class="popular-tags">
+                <h2>Tags Populares</h2>
+                <div class="tags flex-row">
+                    <span class="tag" data-aos="flip-up" data-aos-delay="100">Algoritmos</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="200">Tecnología</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="300">NLP</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="400">Inteligencia</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="500">Linguistica</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="600">Machine Learning</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="700">Forecasting</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="800">Forecasting</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- Contenido         -->
+
+{% endblock %}

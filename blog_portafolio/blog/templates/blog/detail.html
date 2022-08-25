@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block titulo %} {{ post.titulo }} {% endblock %}
+
+{% block contenido %}
+<div class="contenedor">
+    <h1>{{ post.titulo }}</h1>
+    <p>Publicado {{ post.fecha_publicacion }} por {{ post.autor.nombre }}</p>
+    {{ post.contenido|linebreaks|safe }}
+
+    {% include "comentarios.html" %}
+    <p>
+        <a href="{% url 'base:post_share' post.id %}">
+            Compartir este post
+        </a>
+
+    </p>
+
+</div>
+
+{% endblock %}

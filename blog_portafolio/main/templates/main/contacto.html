@@ -1,10 +1,10 @@
 {% extends 'main/base.html' %}
-
+{% load static %}
 
 {% block title %}Rubén - Contacto{% endblock %}
 
 {% block content %}
-{% load static %}
+
 
 <!-- Sección de contacto -->
     <section class="contact section" id="contact">
@@ -32,14 +32,16 @@
 
                 <div class="contact-right">
                     <p>Siempre dispuesto a discutir el diseño <br><span>de productos de calidad</span></p>
-                    <form action="/contacto/" class="contact-form" method="POST">
+                    <form action="/blog/contacto/" class="contact-form" method="POST">
                         {% csrf_token %}
                         <div class="first-row">
                             {{form.nombre}}
                         </div>
+                        <div class="first-row">
+                            {{form.correo}}
+                        </div>
                         <div class="second-row">
-                            {{form.email}}
-
+                            {{form.asunto}}
                         </div>
                         <div class="third-row">
                             {{form.mensaje}}

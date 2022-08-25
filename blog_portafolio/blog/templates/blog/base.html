@@ -1,0 +1,160 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block titulo %} Inteligencia Artificial Blog {% endblock titulo %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+    <!-- Owl-Carousel -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <!-- Biblioteca AOS (Animation On Scroll) -->
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <!-- Biblioteca AOS (Animation On Scroll) -->
+
+
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    <link rel="shortcut icon" href="{% static 'insumos/logo.ico' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'css/fuentes.css' %}">
+
+
+</head>
+
+<body>
+
+<!-- Navegacion -->
+<nav class="nav">
+    <div class="nav-menu flex-row">
+        <div class="nav-brand">
+            <a href="/" class="text-gray"><i class="fab fa-battle-net"></i><em> - IA Español</em></a>
+            <!--<a href="/" class="text-gray"><img src="{% static 'insumos/logo.png' %}" alt="logo"><em> - IA Español</em></a>-->
+        </div>
+        <div class="toggle-collapse">
+            <div class="toggle-icons">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div>
+            <ul class="nav-items">
+                <li class="nav-link">
+                    <a href="/">Inicio</a>
+                </li>
+                <li class="nav-link">
+                    <a href="{% url 'blog:general' %}">General</a>
+                </li>
+                <li class="nav-link">
+                    <a href="{% url 'blog:machinelearning' %}">Machine Learning</a>
+                </li>
+                <li class="nav-link">
+                    <a href="{% url 'blog:deeplearning' %}">Deep Learning</a>
+                </li>
+                <li class="nav-link">
+                    <a href="{% url 'blog:formulario_contacto' %}">Escríbenos</a>
+                </li>
+            </ul>
+        </div>
+        <div class="social text-gray">
+            <a href="#" target="_blank" rel="noopener noreference"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank" rel="noopener noreference"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" rel="noopener noreference"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" rel="noopener noreference"><i class="fab fa-youtube"></i></a>
+
+        </div>
+    </div>
+</nav>
+
+<!-- Navegacion -->
+
+<!-- Sección Principal -->
+<main>
+
+    {% block contenido %}
+    {% endblock %}
+
+
+</main>
+<!-- Sección Principal -->
+
+<!-- Pie de página -->
+<footer class="footer" id="footer">
+    <div class="contenedor">
+        <div class="sobre-nos" data-aos="fade-right" data-aos-delay="200">
+            <h2>Sobre nosotros</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, reiciendis repudiandae aliquam
+                deserunt sint nobis velit ullam quo delectus? Quaerat!</p>
+        </div>
+        <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
+            <h2>Newsletter</h2>
+            <p>Mantente actualizado con nuestros posts</p>
+            <div class="form-element">
+                <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
+            <h2>Instagram</h2>
+            <div class="flex-row">
+                <img src="{% static 'insumos/Blog-post/post-robot1.jpg' %}" alt="insta1">
+                <img src="{% static 'insumos/Blog-post/post-robot2.jpg' %}" alt="insta2">
+                <img src="{% static 'insumos/Blog-post/post-robot3.jpg' %}" alt="insta3">
+            </div>
+            <div class="flex-row">
+                <img src="{% static 'insumos/Blog-post/post-robot4.jpg' %}" alt="insta4">
+                <img src="{% static 'insumos/Blog-post/post-robot5.jpg' %}" alt="insta5">
+                <img src="{% static 'insumos/Blog-post/post-robot6.jpg' %}" alt="insta6">
+            </div>
+        </div>
+        <div class="follow" data-aos="fade-left" data-aos-delay="200">
+            <h2>Seguir</h2>
+            <p>Redes sociales</p>
+            <div>
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+    <div class="rights flex-row">
+        <h4 class="text-gray">
+            &copy; 2021 Realizado por Rubén Guerra
+            <a href="#" target="_black">
+                <i class="fab fa-youtube"></i>
+                Channel
+            </a>
+        </h4>
+    </div>
+    <div class="subir">
+        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
+    </div>
+</footer>
+
+<!-- Pie de página -->
+
+
+<!-- Biblioteca Jquery -->
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+
+<!-- Owl carousel -->
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+<!-- Biblioteca AOS (Animation On Scroll Librery) -->
+
+<script src="{% static 'js/aos.js' %}"></script>
+
+<!-- Biblioteca AOS (Animation On Scroll Librery) -->
+<script src="{% static 'js/principal.js' %}"></script>
+
+</body>
+
+</html>
