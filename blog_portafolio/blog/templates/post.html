@@ -1,45 +1,83 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block titulo %} {{ categoria }} | BLOG IA {% endblock titulo %}
+{% block titulo %} {{ post.titulo  }} | BLOG IA {% endblock titulo %}
 
 {% block contenido %}
+
+<!-- Contenido-------------------->
 
 <section class="contenedor">
     <div class="site-content">
         <div class="posts">
-            {% for post in posts %}
-
             <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
                 <div class="post-image">
                     <div>
-                        <img class="img" src="{{ post.imagen_referencial.url }}" alt="prueba">
+                        <img class="img" src="{{ post.imagen_referencial.url }}" alt="post">
                     </div>
                     <div class="post-info flex-row">
                         <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{ post.autor.nombre }}</span>
                         <span><i
                                 class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{ post.fecha_publicacion }}</span>
-                        <span>{{ post.comentario.count }}</span>
+                        <span>{{ post.comentarios }}</span> <!-- Corregir aqui el numero de comentarios-->
                     </div>
                 </div>
 
                 <div class="post-title">
-                    <a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a>
-                    <!-- Prueba de liga al post
-                    <a href="{% url 'base:detalle_post' post.slug %}">{{ post.titulo }}</a>--->
+                    <a href="#">{{ post.titulo }}</a>
                     <p>{{ post.descripcion }}</p>
-                    <button class="btn post-btn"><a href="{{ post.get_absolute_url }}"><span>Leer más...&nbsp;<i
-                            class="fas fa-arrow-right"></i></span></a></button>
+                    <p class="tags">Etiquetas: {{ post.tags.all|join:", " }}</p>
+
                     <hr>
+
+                    <div class="contenedor">
+                        <article>
+                            <p>
+                                {{ post.contenido | safe }}
+                            </p>
+                        </article>
+                        <div class="popular-tags">
+                            <h2>Etiquetas</h2>
+                            <div class="tags flex-row">
+                                <span class="tag" data-aos="flip-up" data-aos-delay="100">Algoritmos</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="200">Tecnología</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="300">NLP</span>
+                                <span class="tag" data-aos="flip-up" data-aos-delay="400">Inteligencia</span>
+
+                            </div>
+                        </div>
+                        <hr>
+
+                        {% include "comentarios.html" %}
+
+                        <!-- Comentario prueba
+                        <div class="newsletter" data-aos="fade-up" data-aos-delay="200">
+                            <h2>Comentar</h2>
+                            <div class="form-element">
+                                <input type="text" class="input-element" placeholder="Email">
+                                <button class="btn form-btn">Enviar comentario</button>
+                            </div>
+                        </div>
+                        --->
+                        <hr>
+                        <p>
+                            <a href="{% url 'blog:post_share' post.id %}">
+                                <span>Compartir este post</span>
+                            </a>
+
+                        </p>
+                        <hr>
+
+
+                    </div>
+
                 </div>
 
             </div>
-            {% endfor %}
-
-            {% include "paginacion.html" with page=posts %}
-
 
         </div>
+
+
         <aside class="sidebar">
             <div class="category">
                 <h2>Temas</h2>
@@ -164,24 +202,26 @@
                 <h2>Mensajes</h2>
                 <div class="form-element">
                     <input type="text" class="input-element" placeholder="Email">
-                    <button type="submit" class="btn form-btn">Suscríbete</button>
+                    <button class="btn form-btn">Suscríbete</button>
                 </div>
             </div>
             <div class="popular-tags">
                 <h2>Tags Populares</h2>
                 <div class="tags flex-row">
-                    <span class="tag" data-aos="flip-up" data-aos-delay="100">Inteligencia Artificial</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="100">Algoritmos</span>
                     <span class="tag" data-aos="flip-up" data-aos-delay="200">Tecnología</span>
                     <span class="tag" data-aos="flip-up" data-aos-delay="300">NLP</span>
-                    <span class="tag" data-aos="flip-up" data-aos-delay="400">Q-learning</span>
-                    <span class="tag" data-aos="flip-up" data-aos-delay="500">Lingüística</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="400">Inteligencia</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="500">Linguistica</span>
                     <span class="tag" data-aos="flip-up" data-aos-delay="600">Machine Learning</span>
-                    <span class="tag" data-aos="flip-up" data-aos-delay="700">Algoritmos</span>
+                    <span class="tag" data-aos="flip-up" data-aos-delay="700">Forecasting</span>
                     <span class="tag" data-aos="flip-up" data-aos-delay="800">Forecasting</span>
                 </div>
             </div>
         </aside>
     </div>
 </section>
+
+<!-- Contenido         -->
 
 {% endblock %}

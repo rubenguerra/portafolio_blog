@@ -1,6 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="es">
 
 <head>
@@ -37,7 +36,8 @@
 <nav class="nav">
     <div class="nav-menu flex-row">
         <div class="nav-brand">
-            <a href="/" class="text-gray"><i class="fab fa-battle-net"></i><em> - IA Español</em></a>
+            <a href="{% url 'blog:index' %}" class="text-gray"><i class="fab fa-battle-net"></i><em> - IA
+                Español</em></a>
             <!--<a href="/" class="text-gray"><img src="{% static 'insumos/logo.png' %}" alt="logo"><em> - IA Español</em></a>-->
         </div>
         <div class="toggle-collapse">
@@ -48,7 +48,7 @@
         <div>
             <ul class="nav-items">
                 <li class="nav-link">
-                    <a href="/">Inicio</a>
+                    <a href="{% url 'blog:index' %}">Inicio</a>
                 </li>
                 <li class="nav-link">
                     <a href="{% url 'blog:general' %}">General</a>
@@ -60,7 +60,7 @@
                     <a href="{% url 'blog:deeplearning' %}">Deep Learning</a>
                 </li>
                 <li class="nav-link">
-                    <a href="{% url 'blog:formulario_contacto' %}">Escríbenos</a>
+                    <a href="{% url 'blog:contacto' %}">Escríbenos</a>
                 </li>
             </ul>
         </div>
@@ -91,15 +91,17 @@
     <div class="contenedor">
         <div class="sobre-nos" data-aos="fade-right" data-aos-delay="200">
             <h2>Sobre nosotros</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, reiciendis repudiandae aliquam
-                deserunt sint nobis velit ullam quo delectus? Quaerat!</p>
+            <a href="{% url 'main:home' %}">
+                <button class="btn post-btn">¿Quién soy...?&nbsp;<i class="fas fa-arrow-right"></i></button>
+            </a>
         </div>
         <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
             <h2>Newsletter</h2>
-            <p>Mantente actualizado con nuestros posts</p>
-            <div class="form-element">
-                <input type="text" placeholder="Email"><span><i class="fas fa-chevron-right"></i></span>
-            </div>
+            <p>Si estás interesado puedes escribirnos:</p>
+            <a href="{% url 'blog:contacto' %}">
+                <button class="btn post-btn">Escribir&nbsp;<i class="fas fa-arrow-right"></i></button>
+            </a>
+
         </div>
         <div class="instagram" data-aos="fade-left" data-aos-delay="200">
             <h2>Instagram</h2>

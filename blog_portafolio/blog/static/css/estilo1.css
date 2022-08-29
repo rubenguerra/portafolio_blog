@@ -1,4 +1,9 @@
-body{
+@import url("/css/fuentes.css");
+
+html,
+body {
+  /* margin: 0%;
+  box-sizing: border-box; */
   overflow-x: hidden;
 }
 
@@ -25,7 +30,7 @@ body{
 a {
   text-decoration: none;
   color: var(--text-gray);
-  /*font-size: 1.2rem;*/
+  /* font-size: 1.1rem; */
 }
 
 .flex-row {
@@ -67,6 +72,7 @@ span {
 
 .contenedor {
   margin: 0 5vw;
+  /*font-size: 16px;*/
 }
 
 .text-gray {
@@ -79,7 +85,7 @@ p {
 }
 
 section {
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.8rem;
 }
 /* Clases globales */
 
@@ -101,7 +107,7 @@ section {
 .nav .toggle-collapse {
   position: absolute;
   top: 0%;
-  width: 90%;
+  width: 95%;
   cursor: pointer;
   display: none;
 }
@@ -119,7 +125,7 @@ section {
 
 .nav .nav-items {
   display: flex;
-  margin: 0rem;
+  margin: 0;
 }
 
 .collapse {
@@ -149,7 +155,7 @@ section {
 }
 
 .nav .social {
-  padding: 1.4rem 0rem;
+  padding: 1.4rem 0;
 }
 
 .nav .social i {
@@ -167,8 +173,9 @@ main .site-title .site-background img {
   background-repeat: no-repeat;
   position: relative;
   background-size: cover;
-  width: 100%;
-  height: 100%;
+  width: 110vw;
+  /* width: 100%; */
+  height: 110hv;
   color: #fff;
   padding-top: 0rem;
 }
@@ -179,9 +186,14 @@ main .site-title .contenedor {
   left: 1.2rem;
 }
 
-main .site-title h1, h3 {
+main .site-title h1,
+h3 {
   color: #fff;
   margin: 0.3rem;
+  /* font-size: 2em; */
+  /* margin: 0.1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem; */
   text-shadow: 0.1rem 0.1rem #333;
 }
 
@@ -192,10 +204,48 @@ main .site-title .btn {
 
 main .site-title .btn:hover {
   background: transparent;
-  color: var(--white);
   border: 1px solid var(--white);
+  color: var(--white);
 }
+
+/* main .site-title h3 {
+  color: #fff;
+  text-shadow: 0.1em 0.1em #333;
+} */
+
+/* main .site-title a {
+  background: transparent;
+  border: none;
+  color: var(--sky);
+  border-radius: 2rem;
+  padding: 1rem 3rem;
+  font-family: var(--Josefin);
+} */
+
+/* main .site-title a:hover {
+  background: #559be6;
+  color: white;
+  border: white;
+} */
 /* Seccion del carrusel blog */
+
+main .blog {
+  background: url("/insumos/imagen_secundaria.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  background-size: 100%; /*Puse color al fondo*/
+}
+/*
+main .blog:before {
+  content: "";
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  background: linear-gradient(90deg, white, white);
+  opacity: 0.5;
+} */
 
 main .blog .blog-post {
   padding-top: 4.5rem;
@@ -206,7 +256,7 @@ main .blog-post .blog-content {
   flex-direction: column;
   text-align: center;
   width: 80%;
-  margin: 3rem 3rem;
+  margin: 3rem 2rem;
   box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -403,7 +453,7 @@ main .post-content .post-title a {
 footer.footer {
   height: 100%;
   background: var(--bg-color);
-  position: relative
+  position: relative;
 }
 
 footer.footer .contenedor {
@@ -510,7 +560,6 @@ footer.footer .subir span:hover {
   .nav .toggle-collapse {
     display: initial;
   }
-
   main .site-content {
     grid-template-columns: 100%;
   }

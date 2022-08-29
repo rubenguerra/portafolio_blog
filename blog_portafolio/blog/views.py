@@ -120,11 +120,6 @@ class Listado(ListView):
         return render(request, 'categoria.html', contexto)
 
 
-
-
-"""
-
-
 class FormularioContacto(View):
     def get(self, request, *args, **kwargs):
         form = ContactForm()
@@ -143,7 +138,6 @@ class FormularioContacto(View):
                 'form': form,
             }
             return render(request, 'contacto', contexto)
-"""
 
 
 def buscar_post(request):

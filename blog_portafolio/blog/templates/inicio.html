@@ -14,7 +14,7 @@
             <a href="{{ principal.get_absolute_url }}"><h1>{{ principal.titulo }}</h1></a>
             <button class="btn"><a href="{{ principal.get_absolute_url }}">Aprendamos Juntos...</a></button>
             <!-- Prueba liga al post
-            <button class="btn"><a href="{% url 'base:detalle_post' principal.slug %}">Aprendamos Juntos...</a></button> -->
+            <button class="btn"><a href="{% url 'blog:detalle_post' principal.slug %}">Aprendamos Juntos...</a></button> -->
         </div>
     </div>
 </section>
@@ -309,7 +309,7 @@
             </div>
             <div class="newsletter" data-aos="fade-up" data-aos-delay="200">
                 <h2>Mensajes</h2>
-                <form action="{% url 'base:suscribirse' %}" method="post" class="form-element">
+                <form action="{% url 'blog:suscribirse' %}" method="post" class="form-element">
                     {% csrf_token %}
                     <input type="text" class="input-element" placeholder="Email">
                     <button type="submit" class="btn form-btn">Suscríbirse</button>
