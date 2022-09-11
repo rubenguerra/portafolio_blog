@@ -298,9 +298,9 @@ class Suscribir(View):
 
 def post_share(request, post_id):
     """
-    Vista para el formulario de compartir post
+    Vista para el formulario de compartir post.
+    Regresa el post por su id.
     """
-    # Regresa el post por su id
     post = get_object_or_404(Post, id=post_id, estado=True, publicado=True)
     sent = False
 
@@ -310,6 +310,7 @@ def post_share(request, post_id):
         if form.is_valid():
             # Validacion de formulario
             cd = form.cleaned_data
+            
     else:
         form = EmailPostForm()
     return render(request, 'share.html', {'post': post, 'form': form})

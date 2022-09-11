@@ -32,6 +32,7 @@ class IndexView(generic.TemplateView):
         context['portfolio'] = portfolio
         return context
 
+
 """
 class ContactView(generic.FormView):
     template_name = "main/contacto.html"
@@ -44,6 +45,8 @@ class ContactView(generic.FormView):
         return super().form_valid(form)
 
 """
+
+
 class PortfolioView(generic.TemplateView):
     modelo = Portfolio
     template_name = "main/portfolio.html"
