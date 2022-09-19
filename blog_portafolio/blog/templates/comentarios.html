@@ -2,7 +2,7 @@
 
     {% with comentarios.count as total_comentarios %}
     <h2>
-        <span>{{ total_comentarios }} comentario{{ total_comentarios|pluralize }}</span>
+        <span>{{ total_comentarios }} comentario {{ total_comentarios|pluralize }}</span>
     </h2>
     {% endwith %}
 
