@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from blog.models import Habilidad
+
 from django.contrib import messages
 from .models import (
     # UserProfile,
@@ -25,11 +27,14 @@ class IndexView(generic.TemplateView):
         certificados = Certificado.objects.filter(es_activo=True)
         # blogs = Blog.objects.filter(es_activo=True)
         portfolio = Portfolio.objects.filter(es_activo=True)
+        habilidades = Habilidad.objects.filter(is_key_skill=True)
+
 
         context['testimonials'] = testimonials
         context['certificados'] = certificados
         # context['blogs'] = blogs
         context['portfolio'] = portfolio
+        context['habilidades'] = habilidades
         return context
 
 

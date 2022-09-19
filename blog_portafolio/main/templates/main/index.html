@@ -135,61 +135,22 @@
                             <span class="year">1997-2000</span>
                             <p><span>Técnico</span> en informática.</p>
                         </li>
-
                     </ul>
                 </div>
                 <div class="education">
                     <h4><label>Habilidades</label></h4>
                     <ul class="bars">
+                        {% for h in habilidades %}
+                        {% if h.is_key_skill %}
                         <li class="bar">
                             <div class="info">
-                                <span>HTML</span>
-                                <span>95%</span>
+                                <span>{{ h.nombre }}</span>
+                                <span>{{ h.score }}</span>
                             </div>
                             <div class="line html"></div>
                         </li>
-                        <li class="bar">
-                            <div class="info">
-                                <span>CSS</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="line css"></div>
-                        </li>
-                        <li class="bar">
-                            <div class="info">
-                                <span>Javascript</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="line javascript"></div>
-                        </li>
-                        <li class="bar">
-                            <div class="info">
-                                <span>Python</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="line python"></div>
-                        </li>
-                        <li class="bar">
-                            <div class="info">
-                                <span>Django</span>
-                                <span>85%</span>
-                            </div>
-                            <div class="line django"></div>
-                        </li>
-                        <li class="bar">
-                            <div class="info">
-                                <span>Machine learning</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="line machine"></div>
-                        </li>
-                        <li class="bar">
-                            <div class="info">
-                                <span>Deep learning con Tensorflow</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="line deep"></div>
-                        </li>
+                        {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
                 <div class="education">
@@ -420,8 +381,8 @@
         <h2 class="section-title-02">Portafolio</h2>
         <div class="content">
             <div class="portfolio-list">
-                 {% for p in portfolio %}
-                    {% if p.es_activo %}
+                {% for p in portfolio %}
+                {% if p.es_activo %}
                 <div class="img-card-container">
 
 
@@ -444,8 +405,8 @@
 
 
                 </div>
-{% endif %}
-                    {% endfor %}
+                {% endif %}
+                {% endfor %}
 
             </div>
         </div>
@@ -561,6 +522,7 @@
             glare: true,
             "max-glare": 1,
         });
+
 
 
 

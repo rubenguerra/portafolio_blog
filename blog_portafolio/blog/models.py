@@ -22,7 +22,7 @@ class Habilidad(models.Model):
         verbose_name_plural = 'Habilidades'
         verbose_name = 'Habilidad'
 
-    nombre = models.CharField(max_length=20, blank=True, null=True)
+    nombre = models.CharField(max_length=50, blank=True, null=True)
     score = models.IntegerField(default=80, blank=True, null=True)
     imagen = models.FileField(blank=True, null=True, upload_to='habilidades')
     is_key_skill = models.BooleanField(default=False)
@@ -81,7 +81,7 @@ class Post(ModeloBase):
     fecha_publicacion = models.DateTimeField('Fecha de Publicación', default=timezone.now)
     objects = models.Manager()  # El administrador por defecto
     publico = AdminPublicado()  # Administrador construido
-    # tags = TaggableManager()
+    tags = TaggableManager() # Permite usar palabras clave en nuestros posts.
 
     """
     Vamos a definir una ruta absoluta para los posts

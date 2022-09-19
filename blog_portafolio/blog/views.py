@@ -3,12 +3,13 @@ import random
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView, FormView
+from django.db.models import Count
 
 from django.core.mail import send_mail
 from taggit.models import Tag
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.conf import settings
-# from blog_portafolio.settings import EMAIL_HOST_USER
+from blog_portafolio.settings import EMAIL_HOST_USER
 # from .formularios import FormBuscar, ContactoForm
 
 from .models import *  # RedesSociales, Web
@@ -23,13 +24,14 @@ def post_list(request, tag_slug=None):
         tag = get_object_or_404(Tag, slug=tag_slug)
         object_list = object_list.filter(tags__in=[tag])
 
-    paginator = Paginator(object_list, 3)
+    paginator = Paginator(object_list, 3)  # Despliega 3 post en cada página
     page = request.GET.get('page')
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
         posts = paginator.page(1)
     except EmptyPage:
+        # Si la página está fuera del rango devuelve última pagina de resultados
         posts = paginator.page(paginator.num_pages)
     return render(request, 'list.html', {'page': page,
                                          'posts': posts,
@@ -226,10 +228,17 @@ def post_detail(request, year, month, day, post):
     else:
         comentario_form = ComentarioForm()
 
+    # Lista de posts similares
+    #post_tags_ids = post.tags.values_list('id', flat=True)
+    #similar_posts = Post.publicado.filter(tags__in=post_tags_ids).exclude(id=post.id)  # Excluye el post presente
+    #similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publico')[:4]
+
     contexto = {'post': post,
                 'comentarios': comentarios,
                 'nuevo_comentario': nuevo_comentario,
-                'comentario_form': comentario_form}
+                'comentario_form': comentario_form,
+                #'similar_posts': similar_posts
+                }
 
     return render(request, 'post.html', contexto)
 
@@ -310,10 +319,16 @@ def post_share(request, post_id):
         if form.is_valid():
             # Validacion de formulario
             cd = form.cleaned_data
-            
+            post_url = request.build_absolute_uri(post.get_absolute_url())
+            subject = f"{cd['nombre']} recomienda que leas este post: {post.titulo}"
+            mensaje = f"Lee {post.titulo} el comentario al {post_url}\n\n" \
+                      f"de {cd['nombre']}: {cd['comentario']}"
+            send_mail(subject, mensaje, 'lcdorubenguerra@gmail.com', [cd['a']])
+            sent = True
+
     else:
         form = EmailPostForm()
-    return render(request, 'share.html', {'post': post, 'form': form})
+    return render(request, 'share.html', {'post': post, 'form': form, 'sent': sent})
 
 
 class ContactView(FormView):

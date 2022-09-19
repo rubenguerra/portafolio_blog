@@ -47,7 +47,7 @@ class Portfolio(models.Model):
     fecha = models.DateTimeField(blank=True, null=True)
     nombre = models.CharField(max_length=200, blank=True, null=True)
     descripcion = models.CharField(max_length=500, blank=True, null=True)
-    texto = RichTextField(blank=True, null=True)
+    texto = models.CharField(max_length=500, blank=True, null=True)
     imagen = models.ImageField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
     es_activo = models.BooleanField(default=True)
