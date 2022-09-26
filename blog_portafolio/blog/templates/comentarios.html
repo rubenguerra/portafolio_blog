@@ -2,7 +2,7 @@
 
     {% with comentarios.count as total_comentarios %}
     <h2>
-        <span>{{ total_comentarios }} comentario {{ total_comentarios|pluralize }}</span>
+        <span>{{ total_comentarios }} comentario{{ total_comentarios|pluralize }}</span>
     </h2>
     {% endwith %}
 
@@ -22,11 +22,27 @@
     {% if nuevo_comentario %}
     <h2>Tu comentario ha sido añadido.</h2>
     {% else %}
-    <h2><span>Añade un nuevo comentario.</span></h2>
-    <form method="post">
+
+    <form method="post" class="form" style="
+    width: 450px;
+    margin: auto;
+    background: #c2e9fb;
+    padding: 10px 20px;
+    margin-top: 1em;
+    box-sizing: border-box;
+    border-radius: 7px;
+    margin-bottom: 1em;
+">
+        <h2><span>Añade un nuevo comentario.</span></h2>
         {{ comentario_form.as_p }}
         {% csrf_token %}
-        <p><input type="submit" value="Agregar"></p>
+        <p><input type="submit" value="Agregar" style="width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: none;
+    background: #a1c4fd;
+"></p>
     </form>
     {% endif %}
 

@@ -10,15 +10,29 @@
         "{{ post.titulo }}" fue enviado exitosamente a {{ form.cleaned_data.a }}
     </p>
     {% else %}
-    <h2><span>Compartir "{{ post.titulo }}" al e-mail</span></h2>
-    <form method="post">
+
+    <form class="forms" method="post" style="
+    width: 450px;
+    margin: auto;
+    background: #c2e9fb;
+    padding: 10px 20px;
+    margin-top: 1em;
+    box-sizing: border-box;
+    border-radius: 7px;
+    margin-bottom: 1em;
+">
+        <h2><span>Compartir "{{ post.titulo }}" al e-mail</span></h2>
         {{ form.as_p }}
         {% csrf_token %}
-        <p><input type="submit" value="Compartir"></p>
+        <p><input type="submit" value="Compartir" style="width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: none;
+    background: #a1c4fd;
+"></p>
     </form>
     {% endif %}
-
-
 </div>
 
 {% endblock %}
