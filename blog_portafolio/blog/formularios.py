@@ -5,7 +5,21 @@ from .models import Contacto, Comentario
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ('nombre', 'email', 'contenido')
+        fields = ['nombre', 'email', 'contenido']
+
+        widgets = {
+            'nombre': forms.TextInput(attrs={'cols': 43, 'rows': 1,
+                                            'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem;'
+                                                     'min-height: 1.2rem; font-size: 90%'}),
+            'email': forms.EmailInput(attrs={'cols': 43, 'rows': 1,
+                                           'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem;'
+                                                    'min-height: 1.2rem; font-size: 90%'
+                                           }),
+            'contenido': forms.Textarea(attrs={'cols': 43, 'rows': 10,
+                                               'style': 'max-width: 99%; min-width: 99%; max-height: 10rem;'
+                                                        'min-height: 5rem; font-size: 90%'
+                                               })
+        }
 
 
 class FormBuscar(forms.Form):
@@ -17,10 +31,21 @@ class EmailPostForm(forms.Form):
     """
     Formulario para compartir post a través de contacto por e-mail.
     """
-    nombre = forms.CharField(max_length=25)
-    email = forms.EmailField()
-    a = forms.EmailField()
-    comentario = forms.CharField(required=False, widget=forms.Textarea)
+    nombre = forms.CharField(max_length=25, widget=forms.TextInput(attrs={'cols': 43, 'rows': 1,
+                                            'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem;'
+                                                     'min-height: 1.2rem; font-size: 90%'}))
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'cols': 43, 'rows': 1,
+                                           'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem;'
+                                                    'min-height: 1.2rem; font-size: 90%'
+                                           }))
+    a = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'cols': 43, 'rows': 1,
+                                           'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem;'
+                                                    'min-height: 1.2rem; font-size: 90%'
+                                           }))
+    comentario = forms.CharField(required=False, widget=forms.Textarea(attrs={'cols': 43, 'rows': 10,
+                                               'style': 'max-width: 99%; min-width: 99%; max-height: 10rem;'
+                                                        'min-height: 5rem; font-size: 90%'
+                                               }))
 
 
 """

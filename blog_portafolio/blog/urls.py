@@ -9,6 +9,7 @@ urlpatterns = [
     path('general/', Listado.as_view(), {'nombre_categoria': 'General'}, name='general'),
     path('machinelearning/', Listado.as_view(), {'nombre_categoria': 'Machine Learning'}, name='machinelearning'),
     path('deeplearning/', Listado.as_view(), {'nombre_categoria': 'Deep Learning'}, name='deeplearning'),
+    path('lingüistica/', Listado.as_view(), {'nombre_categoria': 'Lingüistica-Literatura'}, name='lingüistica'),
     path('contacto/', ContactView.as_view(), name='contacto'),
     path('formulario_contacto/', FormularioContacto.as_view(), name='formulario_contacto'),
     path('<slug:slug>/', DetallePost.as_view(), name='detalle_post'),

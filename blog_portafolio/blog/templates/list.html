@@ -2,20 +2,33 @@
 {% block titulo %} Mi blog {% endblock %}
 
 {% block contenido %}
-<h1>Mi Blog</h1>
 
-{% if tag %}
-<h2>Posts que tienen la etiqueta: "{{ tag.name }}"</h2>
-{% endif %}
+<div class="contenedor">
+    <h1>IA's - BLOG</h1>
 
-<p class="tags">
-    Tags:
-    {% for tag in post.tags.all %}
-    <a href="{% url 'blog:post_list_by_tag' tag.slug %}">
-    {{ tag.name }}
-    </a>
-    {% if not forloop.last %}, {% endif %}
+    {% if tag %}
+    <h2>Posts que tienen la etiqueta: "{{ tag.name }}"</h2>
+    {% endif %}
+
+
+    <p class="tags">
+
+        {% for post in similar_posts %}
+    <p>
+        <a href="{{ post.get_absolute_url }}"><span>{{ post.titulo }}</span></a>
+    </p>
+    {% empty %}
+    No hay post similares aún
     {% endfor %}
-</p>
+        Tags:
+        {% for tag in post.tags.all %}
+        <a href="{% url 'blog:post_list_by_tag' tag.slug %}">
+            {{ tag.name }}
+        </a>
+        {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </p>
+
+</div>
 
 {% endblock %}

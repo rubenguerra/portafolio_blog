@@ -98,6 +98,16 @@ class Inicio(ListView):
         except:
             post_programacion = None
 
+        try:
+            post_lingüistica = Post.objects.filter(
+                estado=True,
+                publicado=True,
+                categoria=Categoria.objects.get(nombre='Lingüistica')
+            ).latest('fecha_publicacion')
+
+        except:
+            post_lingüistica = None
+
         contexto = {
             'principal': principal,
             'post1': consulta(post1),
@@ -108,6 +118,7 @@ class Inicio(ListView):
             'post_machine_learning': post_machine_learning,
             'post_deep_learning': post_deep_learning,
             'post_programacion': post_programacion,
+            'post_lingüistica': post_lingüistica,
             # 'sociales': obtenerRedes(),
             # 'web': obtenerWeb(),
         }
@@ -229,15 +240,15 @@ def post_detail(request, year, month, day, post):
         comentario_form = ComentarioForm()
 
     # Lista de posts similares
-    #post_tags_ids = post.tags.values_list('id', flat=True)
-    #similar_posts = Post.publicado.filter(tags__in=post_tags_ids).exclude(id=post.id)  # Excluye el post presente
-    #similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publico')[:4]
+    post_tags_ids = post.tags.values_list('id', flat=True)
+    similar_posts = Post.objects.filter(tags__in=post_tags_ids).exclude(id=post.id)  # Excluye el post presente
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publicado')[:4]
 
     contexto = {'post': post,
                 'comentarios': comentarios,
                 'nuevo_comentario': nuevo_comentario,
                 'comentario_form': comentario_form,
-                #'similar_posts': similar_posts
+                'similar_posts': similar_posts
                 }
 
     return render(request, 'post.html', contexto)
