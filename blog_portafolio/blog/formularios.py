@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contacto, Comentario
+from .models import Contacto, Comentario, Post
 
 
 class ComentarioForm(forms.ModelForm):
@@ -115,3 +115,4 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = Contacto
         fields = ('nombre', 'correo', 'asunto', 'mensaje',)
+

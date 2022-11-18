@@ -26,13 +26,10 @@
                 <div class="post-title">
                     <a href="#">{{ post.titulo }}</a>
                     <p>{{ post.descripcion }}</p>
-
                     <hr>
-
-
                         <article>
                             <p>
-                                {{ post.contenido | safe }}
+                                {{ post.contenido | safe}}
                             </p>
                         </article>
                         <hr>
@@ -64,8 +61,6 @@
                             {% endfor %}
                         </div>
                         <hr>
-
-
 
                     {% include "comentarios.html" %}
                     <hr>

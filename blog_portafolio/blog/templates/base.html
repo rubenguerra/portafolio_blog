@@ -27,6 +27,11 @@
 
     <link rel="stylesheet" href="{% static 'css/fuentes.css' %}">
 
+    <link rel="stylesheet"
+          href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
 
 </head>
 
@@ -86,63 +91,7 @@
 </main>
 <!-- Sección Principal -->
 
-<!-- Pie de página -->
-<footer class="footer" id="footer">
-    <div class="contenedor">
-        <div class="sobre-nos" data-aos="fade-right" data-aos-delay="200">
-            <h2>Sobre nosotros</h2>
-            <a href="{% url 'main:home' %}">
-                <button class="btn post-btn">¿Quiénes somos...?&nbsp;<i class="fas fa-arrow-right"></i></button>
-            </a>
-        </div>
-        <div class="newsletter" data-aos="fade-right" data-aos-delay="200">
-            <h2>Newsletter</h2>
-            <p>Si estás interesado puedes escribirnos:</p>
-            <a href="{% url 'blog:contacto' %}">
-                <button class="btn post-btn">Escribir&nbsp;<i class="fas fa-arrow-right"></i></button>
-            </a>
-
-        </div>
-        <div class="instagram" data-aos="fade-left" data-aos-delay="200">
-            <h2>Instagram</h2>
-            <div class="flex-row">
-                <img src="{% static 'insumos/Blog-post/post-robot1.jpg' %}" alt="insta1">
-                <img src="{% static 'insumos/Blog-post/post-robot2.jpg' %}" alt="insta2">
-                <img src="{% static 'insumos/Blog-post/post-robot3.jpg' %}" alt="insta3">
-            </div>
-            <div class="flex-row">
-                <img src="{% static 'insumos/Blog-post/post-robot4.jpg' %}" alt="insta4">
-                <img src="{% static 'insumos/Blog-post/post-robot5.jpg' %}" alt="insta5">
-                <img src="{% static 'insumos/Blog-post/post-robot6.jpg' %}" alt="insta6">
-            </div>
-        </div>
-        <div class="follow" data-aos="fade-left" data-aos-delay="200">
-            <h2>Seguir</h2>
-            <p>Redes sociales</p>
-            <div>
-                <i class="fab fa-facebook-f"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-instagram"></i>
-                <i class="fab fa-youtube"></i>
-            </div>
-        </div>
-    </div>
-    <div class="rights flex-row">
-        <h4 class="text-gray">
-            &copy; 2021 Realizado por Rubén Guerra
-            <a href="#" target="_black">
-                <i class="fab fa-youtube"></i>
-                Channel
-            </a>
-        </h4>
-    </div>
-    <div class="subir">
-        <span><i class="fas fa-arrow-circle-up fa-2x"></i></span>
-    </div>
-</footer>
-
-<!-- Pie de página -->
-
+{% include 'footer.html' %}
 
 <!-- Biblioteca Jquery -->
 <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>

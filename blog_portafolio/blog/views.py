@@ -99,14 +99,14 @@ class Inicio(ListView):
             post_programacion = None
 
         try:
-            post_lingüistica = Post.objects.filter(
+            post_linguistica = Post.objects.filter(
                 estado=True,
                 publicado=True,
-                categoria=Categoria.objects.get(nombre='Lingüistica')
+                categoria=Categoria.objects.get(nombre='Linguistica')
             ).latest('fecha_publicacion')
 
         except:
-            post_lingüistica = None
+            post_linguistica = None
 
         contexto = {
             'principal': principal,
@@ -118,7 +118,7 @@ class Inicio(ListView):
             'post_machine_learning': post_machine_learning,
             'post_deep_learning': post_deep_learning,
             'post_programacion': post_programacion,
-            'post_lingüistica': post_lingüistica,
+            'post_linguistica': post_linguistica,
             # 'sociales': obtenerRedes(),
             # 'web': obtenerWeb(),
         }
@@ -254,22 +254,6 @@ def post_detail(request, year, month, day, post):
     return render(request, 'post.html', contexto)
 
 
-"""
-class DetallePost(DetailView):
-    def get(self, request, slug, *args, **kwargs):
-        try:
-            post = Post.objects.get(slug=slug)
-        except:
-            post = None
-
-        contexto = {
-            'post': post,
-        }
-        return render(request, 'post.html', contexto)
-
-"""
-
-
 class DetallePost(DetailView):
     def get(self, request, slug, *args, **kwargs):
         try:
@@ -351,3 +335,5 @@ class ContactView(FormView):
         form.save()
         # messages.success(self.request, "Gracias. Estaremos en contacto pronto...")
         return super().form_valid(form)
+
+

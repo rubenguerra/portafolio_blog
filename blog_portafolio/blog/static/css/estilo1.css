@@ -1,5 +1,6 @@
-/*@import url("./fuentes.css");
-*/
+
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Josefin+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Lexend:wght@200;300;400;500;600&family=Livvic:ital,wght@0,200;0,400;0,500;1,300;1,400&display=swap');
+
 html,
 body {
   /* margin: 0%;
@@ -10,7 +11,7 @@ body {
 :root {
   /* colores */
   --text-gray: #3f4954;
-  --text-light: #686666da;
+  --text-light: #0e2431;
   --bg-color: #0f0f0f;
   --white: #fff;
   --midnight: #104f55;
@@ -19,18 +20,19 @@ body {
   --sky: linear-gradient(25deg, #a1c4fd 0%, #c2e9fb 80%);
 
   /* Fuentes */
-  --Abel: "Abel", cursive, sans-serif;
-  --Anton: "Anton", cursive, sans-serif;
-  --Josefin: "Josefin", cursive, sans-serif;
-  --Lexend: "Lexend", cursive, sans-serif;
-  --Livvic: "Livvic", cursive, sans-serif;
+  --Abel: 'Abel', sans-serif;
+  --Anton: 'Anton', sans-serif;
+  --Josefin: 'Josefin Sans', sans-serif;
+  --Lexend: 'Lexend', sans-serif;
+  --Livvic: 'Livvic', sans-serif;
+
 }
 
 /* Clases globales */
 a {
   text-decoration: none;
   color: var(--text-gray);
-  /* font-size: 1.1rem; */
+  font-size: 1.1rem;
 }
 
 .flex-row {
@@ -72,7 +74,7 @@ span {
 
 .contenedor {
   margin: 0 5vw;
-  /*font-size: 16px;*/
+  font-size: 15px;
 }
 
 .text-gray {

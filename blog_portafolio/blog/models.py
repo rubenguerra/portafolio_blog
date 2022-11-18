@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from ckeditor.fields import RichTextField
 from django.utils import timezone
@@ -45,7 +46,7 @@ class UserProfile(models.Model):
     facebook = models.URLField('Facebook', null=True, blank=True)
     twitter = models.URLField('Twitter', null=True, blank=True)
     instagram = models.URLField('Instagram', null=True, blank=True)
-    cv = models.FileField(blank=True, null=True, upload_to='cv')
+    cv = models.FileField(blank=True, null=True, upload_to='cv/')
 
     def __str__(self):
         return f'{self.usuario}'
@@ -75,13 +76,14 @@ class Post(ModeloBase):
     descripcion = models.TextField('Descripción')
     autor = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='blog_posts')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
-    contenido = RichTextField(verbose_name='Contenido')
+    contenido = RichTextUploadingField(verbose_name='Contenido')
     imagen_referencial = models.ImageField('Imagen Referencial', upload_to='imagenes/', max_length=255)
     publicado = models.BooleanField('Publicado / No Publicado', default=False)
     fecha_publicacion = models.DateTimeField('Fecha de Publicación', default=timezone.now)
+    dataset = models.FileField(blank=True, null=True, upload_to='dataset/')
     objects = models.Manager()  # El administrador por defecto
     publico = AdminPublicado()  # Administrador construido
-    tags = TaggableManager() # Permite usar palabras clave en nuestros posts.
+    tags = TaggableManager()  # Permite usar palabras clave en nuestros posts.
 
     """
     Vamos a definir una ruta absoluta para los posts

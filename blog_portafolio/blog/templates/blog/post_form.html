@@ -1,0 +1,6 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.media %}
+    {{ form }}
+    <p><input type="submit" value="Guardar"></p>
+</form>
