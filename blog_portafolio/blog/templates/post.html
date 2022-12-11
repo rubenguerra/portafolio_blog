@@ -27,40 +27,39 @@
                     <a href="#">{{ post.titulo }}</a>
                     <p>{{ post.descripcion }}</p>
                     <hr>
-                        <article>
+                    <article>
+                        <p>
+                            {{ post.contenido | safe}}
+                        </p>
+                    </article>
+                    <hr>
+                    <div class="popular-tags">
+                        <p>Este post trata sobre:</p>
+                        <div class="tags flex-row">
                             <p>
-                                {{ post.contenido | safe}}
-                            </p>
-                        </article>
-                        <hr>
-                        <div class="popular-tags">
-                            <p>Este post trata sobre:</p>
-                            <div class="tags flex-row">
-                                <p>
-                                    {% for tag in post.tags.all %}
+                                {% for tag in post.tags.all %}
 
-                                    <span class="tag">{{ tag.name }}</span>
-
+                                <span style="background: var(--sky); padding: 0.4rem 1rem; border-radius: 3rem; margin: 0.1rem 0.2rem;">{{ tag.name }}</span>
 
 
                                 <!--<a href="{% url 'blog:post_list_by_tag' tag.slug %}">
                                     <span class="tag">{{ tag.name }}</span></a>-->
 
-                                {% if not forloop.last %}, {% endif %}
+                                {% if not forloop.last %} {% endif %}
                                 {% endfor %}
-                                </p>
-
-                            </div>
-                            <p>Posts similares:</p>
-                            {% for post in similar_posts %}
-                            <p>
-                                <a href="{{ post.get_absolute_url }}"><span>{{ post.titulo }}</span></a>
                             </p>
-                            {% empty %}
-                            <p>No hay post similares aún</p>
-                            {% endfor %}
+
                         </div>
-                        <hr>
+                        <p>Posts similares:</p>
+                        {% for post in similar_posts %}
+                        <p>
+                            <a href="{{ post.get_absolute_url }}"><span>{{ post.titulo }}</span></a>
+                        </p>
+                        {% empty %}
+                        <p>No hay post similares aún</p>
+                        {% endfor %}
+                    </div>
+                    <hr>
 
                     {% include "comentarios.html" %}
                     <hr>
@@ -80,8 +79,8 @@
 
         </div>
 
-<!-- SECCION DE SIDEBAR
-        -->
+        <!-- SECCION DE SIDEBAR
+                -->
         {% include "aside.html" %}
 
     </div>

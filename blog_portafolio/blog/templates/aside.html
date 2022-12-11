@@ -1,3 +1,4 @@
+{% load blog_tags %}
 {% load static %}
 
 <aside class="sidebar">
@@ -27,98 +28,108 @@
         </ul>
     </div>
 
+    <!-- Esta es la parte para colocar los posts mas recientes -->
+
+    <h2>Mi blog</h2>
+    <p>Este es mi blog. He escrito {% total_posts %} posts hasta ahora</p>
+
     <div class="popular-post">
-        <h2>Más populares</h2>
-        <div class="post-content" data-aos="flip-up" data-aos-delay="200">
-            <div class="post-image">
-                <div>
-                    <img class="img" src="{% static '/insumos/Blog-post/post-robot10.jpg' %}" alt="post1">
+        <h2>Más recientes</h2>
+
+        {% mostrar_ultimos_posts 5 %}
+        <!--
+                <div class="post-content" data-aos="flip-up" data-aos-delay="200">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static '/insumos/Blog-post/post-robot10.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
+
+                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                                2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
+
+                    <div class="post-title">
+                        <a href="#">Las matemáticas de la inteligencia artificial</a>
+                    </div>
+
                 </div>
-                <div class="post-info flex-row">
+                <div class="post-content" data-aos="flip-up" data-aos-delay="300">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static '/insumos/imagen_principal.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
 
-                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
-                                        2020</span>
-                    <span>1 comentario</span>
+                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                                2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
+
+                    <div class="post-title">
+                        <a href="#">¿Necesitamos de la estadística?</a>
+                    </div>
+
                 </div>
-            </div>
+                <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static './insumos/Blog-post/post-robot3.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
 
-            <div class="post-title">
-                <a href="#">Las matemáticas de la inteligencia artificial</a>
-            </div>
+                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                                2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
 
-        </div>
-        <div class="post-content" data-aos="flip-up" data-aos-delay="300">
-            <div class="post-image">
-                <div>
-                    <img class="img" src="{% static '/insumos/imagen_principal.jpg' %}" alt="post1">
+                    <div class="post-title">
+                        <a href="#">La transformada de Fourier en el ambito académico</a>
+                    </div>
+
                 </div>
-                <div class="post-info flex-row">
+                <div class="post-content" data-aos="flip-up" data-aos-delay="500">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static './insumos/Blog-post/post-robot9.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
 
-                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
-                                        2020</span>
-                    <span>1 comentario</span>
+                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                                2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
+
+                    <div class="post-title">
+                        <a href="#">La validación cruzada y su implementación</a>
+                    </div>
+
                 </div>
-            </div>
+                <div class="post-content" data-aos="flip-up" data-aos-delay="600">
+                    <div class="post-image">
+                        <div>
+                            <img class="img" src="{% static './insumos/Blog-post/post-robot1.jpg' %}" alt="post1">
+                        </div>
+                        <div class="post-info flex-row">
 
-            <div class="post-title">
-                <a href="#">¿Necesitamos de la estadística?</a>
-            </div>
+                                            <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
+                                                2020</span>
+                            <span>1 comentario</span>
+                        </div>
+                    </div>
 
-        </div>
-        <div class="post-content" data-aos="flip-up" data-aos-delay="400">
-            <div class="post-image">
-                <div>
-                    <img class="img" src="{% static './insumos/Blog-post/post-robot3.jpg' %}" alt="post1">
+                    <div class="post-title">
+                        <a href="#">Un problema de métricas</a>
+                    </div>
+
                 </div>
-                <div class="post-info flex-row">
 
-                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
-                                        2020</span>
-                    <span>1 comentario</span>
-                </div>
-            </div>
-
-            <div class="post-title">
-                <a href="#">La transformada de Fourier en el ambito académico</a>
-            </div>
-
-        </div>
-        <div class="post-content" data-aos="flip-up" data-aos-delay="500">
-            <div class="post-image">
-                <div>
-                    <img class="img" src="{% static './insumos/Blog-post/post-robot9.jpg' %}" alt="post1">
-                </div>
-                <div class="post-info flex-row">
-
-                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
-                                        2020</span>
-                    <span>1 comentario</span>
-                </div>
-            </div>
-
-            <div class="post-title">
-                <a href="#">La validación cruzada y su implementación</a>
-            </div>
-
-        </div>
-        <div class="post-content" data-aos="flip-up" data-aos-delay="600">
-            <div class="post-image">
-                <div>
-                    <img class="img" src="{% static './insumos/Blog-post/post-robot1.jpg' %}" alt="post1">
-                </div>
-                <div class="post-info flex-row">
-
-                                    <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;Febrero 14
-                                        2020</span>
-                    <span>1 comentario</span>
-                </div>
-            </div>
-
-            <div class="post-title">
-                <a href="#">Un problema de métricas</a>
-            </div>
-
-        </div>
+            -->
     </div>
     <div class="newsletter" data-aos="fade-up" data-aos-delay="200">
         <h2>Mensajes</h2>
