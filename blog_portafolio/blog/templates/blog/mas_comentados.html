@@ -1,0 +1,37 @@
+{% load static %}
+
+<!-- Blog carusel -->
+<section>
+    <div class="blog" style="background-image: url({% static 'insumos/imagen_editada.jpg' %});   height: 90vh;">
+        <div class="contenedor">
+            <div class="owl-carousel owl-theme blog-post">
+
+                {% for post in mas_comentados %}
+                <!--
+                            <a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a>
+                -->
+                <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
+                    <img src="{{ post.imagen_referencial.url }}" alt="Post-1">
+                    <div class="blog-title">
+                        <!--
+                        <h3>{{ post.titulo }}</h3> -->
+                        <h2><a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a></h2>
+                        <button class="btn btn-blog">{{ post.categoria }}</button>
+                        <span>5 minutos.</span>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+
+            </div>
+
+            <!-- FLECHAS DE NAVEGACION DEL CARUSEL -->
+            <div class="owl-navigation">
+                <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Blog carusel -->

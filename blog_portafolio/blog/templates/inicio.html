@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
+{% load blog_tags %}
 {% load static %}
+
 
 {% block contenido %}
 <!-- Titulo -->
+<!-- Sección de nota principal -->
 <section class="site-title">
     <div class="site-background" data-aos="fade-up" data-aos-delay="100">
         <img src="{{ principal.categoria.imagen_referencial.url }}" alt="imagen-categoria">
@@ -20,60 +23,13 @@
 </section>
 <!-- Titulo -->
 
-<!-- Blog carusel -->
-<section>
-    <div class="blog" style="background-image: url({% static 'insumos/imagen_editada.jpg' %});   height: 90vh;">
-        <div class="contenedor">
-            <div class="owl-carousel owl-theme blog-post">
-                <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
-                    <img src="{% static 'insumos/Blog-post/post-robot1.jpg' %}" alt="Post-1">
-                    <div class="blog-title">
-                        <h3>La revolucion del deep learning</h3>
-                        <button class="btn btn-blog">Deep Learning</button>
-                        <span>5 minutos.</span>
-                    </div>
-                </div>
-                <div class="blog-content" data-aos="fade-in" data-aos-delay="200">
-                    <img src="{% static 'insumos/Blog-post/post-robot2.jpg' %}" alt="Post-1">
-                    <div class="blog-title">
-                        <h3>Qué nos dicen los gráficos de datos</h3>
-                        <button class="btn btn-blog">Realizamos un EDA</button>
-                        <span>5 minutos.</span>
-                    </div>
-                </div>
-                <div class="blog-content" data-aos="fade-left" data-aos-delay="200">
-                    <img src="{% static 'insumos/Blog-post/post-robot3.jpg' %}" alt="Post-1">
-                    <div class="blog-title">
-                        <h3>Los modelos del machine learning</h3>
-                        <button class="btn btn-blog">Machine Learning</button>
-                        <span>5 minutos.</span>
-                    </div>
-                </div>
-                <div class="blog-content" data-aos="fade-right" data-aos-delay="200">
-                    <img src="{% static 'insumos/Blog-post/post-robot4.jpg' %}" alt="Post-1">
-                    <div class="blog-title">
-                        <h3>Modelos de machine learning supervisado</h3>
-                        <button class="btn btn-blog">Machine learning</button>
-                        <span>5 minutos.</span>
-                    </div>
-                </div>
-                <div class="blog-content">
-                    <img src="{% static 'insumos/Blog-post/post-robot5.jpg' %}" alt="Post-1">
-                    <div class="blog-title">
-                        <h3>Modelos de machine learning no supervisado</h3>
-                        <button class="btn btn-blog">Machine Learning</button>
-                        <span>5 minutos.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="owl-navigation">
-                <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
-                <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Blog carusel -->
+
+
+<!-- Sección carrusel -->
+
+{% get_posts_mas_comentados 5 %}
+
+<!-- Fin Sección carrusel -->
 
 
 <!-- Contenido-------------------->

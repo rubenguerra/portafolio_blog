@@ -24,7 +24,8 @@
                 </div>
 
                 <div class="post-title">
-                    <a href="#">{{ post.titulo }}</a>
+
+                    <h1>{{ post.titulo }}</h1>
                     <p>{{ post.descripcion }}</p>
                     <hr>
                     <article>
@@ -39,7 +40,10 @@
                             <p>
                                 {% for tag in post.tags.all %}
 
-                                <span style="background: var(--sky); padding: 0.4rem 1rem; border-radius: 3rem; margin: 0.1rem 0.2rem;">{{ tag.name }}</span>
+                                <span style="background: var(--sky);
+                                            padding: 0.4rem 1rem;
+                                            border-radius: 3rem;
+                                            margin: 0.1rem 0.2rem;">{{ tag.name | capfirst }}</span>
 
 
                                 <!--<a href="{% url 'blog:post_list_by_tag' tag.slug %}">

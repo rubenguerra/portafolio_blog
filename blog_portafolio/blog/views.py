@@ -312,7 +312,7 @@ def post_share(request, post_id):
         # Formulario que será enviado
         form = EmailPostForm(request.POST)
         if form.is_valid():
-            # Validacion de formulario
+            # Validación de formulario
             cd = form.cleaned_data
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = f"{cd['nombre']} recomienda que leas este post: {post.titulo}"
