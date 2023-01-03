@@ -18,25 +18,29 @@ from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from blog.sitemaps import PostSitemaps
+
+# from blog.sitemaps import PostSitemaps
 
 # from blog import views as blog_views
 
 
+"""
 
 # Revisar si este sitemaps puede ir en la url de blog...
 sitemaps = {
     'posts': PostSitemaps,
 }
+"""
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include('main.urls', namespace='main')),
     path('blog/', include('blog.urls', namespace='blog')),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    # path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
     # path('agregar/post', blog_views.add_post, name='add_post'),
-    #path('editar/post/<int:post_id', blog_views.edit_post, name='add_post')
+    # path('editar/post/<int:post_id', blog_views.edit_post, name='add_post')
 ]
 
 if settings.DEBUG:

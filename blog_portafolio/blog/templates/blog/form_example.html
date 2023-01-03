@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load blog_tags %}
+{% load static %}
+
+{% block titulo %} {{ post.titulo  }} Suscripción {% endblock titulo %}
+
+{% block contenido %}
+
+<div class="contenedor">
+
+    <div class="newsletter" data-aos="fade-up" data-aos-delay="200">
+        <div class="contenedor">
+
+            <form method="post" style="
+    width: 25rem;
+    margin: auto;
+    background: #c2e9fb;
+    padding: 10px 20px;
+    margin-top: 1em;
+    box-sizing: border-box;
+    border-radius: 7px;
+    margin-bottom: 1em;
+">
+                <h2>Suscripción</h2>
+                <h4>
+                    {% for message in messages %}
+                    <p><span>{{ message }}</span></p>
+                    {% endfor %}
+                </h4>
+
+                <div class="form-element">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn form-btn">Suscribirme</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

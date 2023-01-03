@@ -12,11 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import tempfile
-
-import zoneinfo
-
-from django.utils import timezone
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +34,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
 SITE_ID = 1
 
 # Application definition
@@ -59,8 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps'
 ]
-
-CKEDITOR_UPLOAD_PATH = 'uploads/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -130,7 +125,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
 
 USE_I18N = True
 
@@ -144,16 +139,19 @@ USE_TZ = True
 #    os.path.join(BASE_DIR, 'media')
 # ]
 
-STATIC_URL = 'static/'
-# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = 'staticfiles/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles/'
 
+"""
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
+"""
 
-CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
+# CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -177,7 +175,8 @@ CKEDITOR_CONFIGS = {
                        'HiddenField']},
             '/',
             {'name': 'basicstyles',
-             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat', 'CodeSnippet']},
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat',
+                       'CodeSnippet']},
             {'name': 'paragraph',
              'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
                        'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
@@ -205,17 +204,17 @@ CKEDITOR_CONFIGS = {
         # 'filebrowserWindowHeight': 725,
         # 'filebrowserWindowWidth': 940,
         # 'toolbarCanCollapse': True,
-        # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
         'tabSpaces': 4,
         'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
+            'uploadimage',  # the upload image feature
             # your extra plugins here
             'div',
             'autolink',
             'autoembed',
             'embedsemantic',
             'autogrow',
-            # 'devtools',
+            'devtools',
             'widget',
             'lineutils',
             'clipboard',
@@ -226,3 +225,5 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'

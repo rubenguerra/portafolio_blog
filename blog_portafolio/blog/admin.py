@@ -26,7 +26,7 @@ class ComentarioAdmin(admin.ModelAdmin):
 
 @admin.register(Contacto)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('id', 'nombre')
+    list_display = ('id', 'nombre', 'correo', 'asunto', 'mensaje')
 
 
 @admin.register(Suscriptores)

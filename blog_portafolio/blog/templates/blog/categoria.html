@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %} {{ categoria }} | BLOG IA {% endblock titulo %}
+
+{% block contenido %}
+
+<section class="contenedor">
+    <div class="site-content">
+        <div class="posts">
+            {% for post in posts %}
+
+            <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                <div class="post-image">
+                    <div>
+                        <img class="img" src="{{ post.imagen_referencial.url }}" alt="prueba">
+                    </div>
+                    <div class="post-info flex-row">
+                        <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;{{ post.autor.nombre }}</span>
+                        <span><i
+                                class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{ post.fecha_publicacion }}</span>
+                        <span>{{ post.comentario.count }}</span>
+                    </div>
+                </div>
+
+                <div class="post-title">
+                    <a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a>
+                    <p>{{ post.descripcion }}</p>
+                    <button class="btn post-btn"><a href="{{ post.get_absolute_url }}"><span>Leer más...&nbsp;<i
+                            class="fas fa-arrow-right"></i></span></a></button>
+                    <hr>
+                </div>
+
+            </div>
+            {% endfor %}
+
+            {% include "blog/paginacion.html" with page=posts %}
+
+
+        </div>
+
+        {% include "blog/aside.html" %}
+    </div>
+</section>
+
+{% endblock %}

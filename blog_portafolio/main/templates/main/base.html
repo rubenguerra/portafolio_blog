@@ -1,35 +1,53 @@
-{% load static %}
 <!DOCTYPE html>
-
+{% load static %}
 
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} Portafolio {% endblock title %}</title>
-    <link rel="canonical" href="{{ request.path }}">
-    <link rel="shortcut icon" href="{% static 'imagen/logo.ico' %}" type="image/x-icon">
-    
-<!--    ARCHIVOS CSS -->
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title>PortaFolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.css">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link rel="shortcut icon" href="{% static 'imagen/logo.ico' %}" type="image/x-icon">
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-<!--    Fin archivos CSS -->
 </head>
 <body>
-<!--{% include 'main/partial/mensajes.html' %}-->
+
+<!-- Botón hacia arriba -->
+<div class="scrollToTop-btn flex-center">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- Botón de selección de color de tema -->
+<div class="theme-btn flex-center">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+</div>
 
 {% include 'main/partial/nav.html' %}
 
 {% block content %}{% endblock %}
 
-{% block contacto %}{% endblock %}
-
 {% include 'main/partial/footer.html' %}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
 
-    <script src="{% static 'js/principal.js' %}"></script>
+<!-- Sección de scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
+
+<script src="{% static 'principal.js' %}"></script>
+<script type="text/javascript" src="{% static 'vanilla-tilt.js' %}"></script>
+<script>
+        VanillaTilt.init(document.querySelectorAll(".card"), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 1,
+        });
+
+</script>
 </body>
 </html>

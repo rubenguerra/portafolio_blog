@@ -1,6 +1,5 @@
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
-from ckeditor.fields import RichTextField
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -55,7 +54,7 @@ class UserProfile(models.Model):
 class Categoria(ModeloBase):
     nombre = models.CharField('Nombre de la Categoría', max_length=100, unique=True)
     imagen_referencial = models.ImageField('Imagen Referencial', upload_to='categoria/')
-    objects = models.Manager()
+    objects = models.Manager()  # Puedo eliminar...
 
     class Meta:
         verbose_name = 'Categoría'
@@ -90,9 +89,7 @@ class Post(ModeloBase):
     """
 
     def get_absolute_url(self):
-        return reverse('blog:post_detail', args=[self.fecha_publicacion.year,
-                                                 self.fecha_publicacion.month,
-                                                 self.fecha_publicacion.day, self.slug])
+        return reverse('blog:detalle_post', args=[self.slug])
 
     class Meta:
         verbose_name = 'Post'
@@ -148,8 +145,7 @@ class Contacto(ModeloBase):
 
 
 class Suscriptores(ModeloBase):
-    correo = models.EmailField('Correo Electrónico', max_length=200)
-    objects = models.Manager()
+    correo = models.EmailField(unique=True, max_length=200)
 
     class Meta:
         verbose_name = 'Suscriptor'

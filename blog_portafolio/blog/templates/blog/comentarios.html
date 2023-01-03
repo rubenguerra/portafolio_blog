@@ -1,0 +1,58 @@
+{% load static %}
+
+<div class="contenedor">
+
+    {% with comentarios.Count as total_comentarios %}
+    <h2>
+        <span>Hay {{ total_comentarios }} comentario{{ total_comentarios|pluralize }} a este post.</span>
+    </h2>
+    {% endwith %}
+
+    {% for comentario in comentarios %}
+    <div class="comentario">
+                 <span>
+                Comentario {{ forloop.counter }} por {{ comentario.nombre }}
+                {{ comentario.creado }}
+
+                {{ comentario.contenido|linebreaks }}
+                 </span>
+    </div>
+    {% empty %}
+    <p>No hay ningún comentario aún.</p>
+    {% endfor %}
+
+    {% if nuevo_comentario %}
+    <p>Tu comentario ha sido añadido.</p>
+    {% else %}
+
+</div>
+
+<div class="contenedor" data-aos="fade-up" data-aos-delay="200">
+
+    <form method="POST" class="form" style="
+    width: 100%;
+    margin: auto;
+    background: #c2e9fb;
+    padding: 10px 20px;
+    margin-top: 1em;
+    box-sizing: border-box;
+    border-radius: 7px;
+    margin-bottom: 1em;
+">
+        {% csrf_token %}
+        <h2><span>Añade un nuevo comentario.</span></h2>
+        {{ comentario_form.as_p }}
+
+        <p><input type="submit" value="Agregar" style="width: 100%;
+    margin-bottom: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: none;
+    background: #a1c4fd;
+"></p>
+    </form>
+
+
+    {% endif %}
+
+</div>

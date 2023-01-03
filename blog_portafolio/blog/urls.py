@@ -1,9 +1,14 @@
-from django.urls import path
+from django.contrib.sitemaps.views import sitemap
+from django.urls import path, include
 from .feeds import LatestPostsFeed
+from .sitemaps import PostSitemaps
 
 from .views import *
 
 app_name = 'blog'
+sitemaps = {
+    'posts': PostSitemaps,
+}
 
 urlpatterns = [
     path('', Inicio.as_view(), name='index'),
@@ -14,15 +19,15 @@ urlpatterns = [
     path('contacto/', ContactView.as_view(), name='contacto'),
     path('formulario_contacto/', FormularioContacto.as_view(), name='formulario_contacto'),
     path('<slug:slug>/', DetallePost.as_view(), name='detalle_post'),
-    path('suscribirse/', Suscribir.as_view(), name='suscribirse'),
+    path('suscriptores/<int:pk>/', suscribir, name='suscriptor_listo'),
+    path('suscriptores/nuevo/', suscribir, name='suscriptor_crear'),
     path('buscar-post', buscar_post, name='buscar'),
-    path('posts/<int:pk>/', detalles_post, name='detalles_post'),
+    # path('posts/<int:pk>/', detalles_post, name='detalles_post'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
     path('list/', post_list, name='post_list'),
     path('tag/<slug:tag_slug>/', post_list, name='post_list_by_tag'),
-    path('<int:year>/<int:month>/<int:day>/<slug:post>/', post_detail, name='post_detail'),
     path('<int:post_id>/compartir/', post_share, name='post_share'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
-
 ]
 # ['posts/(?P<pk>[0-9]+)/$']

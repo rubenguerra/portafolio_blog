@@ -1,54 +1,9 @@
-<!DOCTYPE html>
+{% extends 'main/base.html' %}
 {% load static %}
 
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PortaFolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.css">
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <link rel="shortcut icon" href="{% static 'imagen/logo.ico' %}" type="image/x-icon">
+{% block content %}
 
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-</head>
-<body>
-
-<!-- Botón hacia arriba -->
-<div class="scrollToTop-btn flex-center">
-    <i class="fas fa-arrow-up"></i>
-</div>
-
-<!-- Botón de selección de color de tema -->
-<div class="theme-btn flex-center">
-    <i class="fas fa-moon"></i>
-    <i class="fas fa-sun"></i>
-</div>
-
-<!-- Encabezado -->
-<header>
-    <div class="nav-bar">
-        <a href="#" class="logo">Rubén</a>
-        <div class="navigation">
-            <div class="nav-items">
-                <div class="nav-close-btn"></div>
-                <a class="active" href="#home">Inicio</a>
-                <a href="#about">Sobre mí</a>
-                <a href="#skills">Habilidades</a>
-                <a href="#services">Servicios</a>
-                <a href="#portfolio">Portafolio</a>
-                <a href="{% url 'blog:contacto' %}">Contacto</a>
-                <a href="{% url 'blog:index' %}">Blog</a>
-            </div>
-        </div>
-        <div class="nav-menu-btn"></div>
-    </div>
-</header>
-
-<!-- Seccion Inicio -->
+<!-- Sección Inicio -->
 
 <section class="home" id="home">
     <div class="home-container">
@@ -56,7 +11,7 @@
             <a href="https:/www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https:/www.linkedin.com/in/rubenjguerra" target="_blank"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/rubenguerra" target="_blank"><i class="fab fa-github"></i></a>
-            <a href=""><i class="fab fa-whatsapp"></i></a>
+            <!--<a href=""><i class="fab fa-whatsapp"></i></a>-->
         </div>
         <div class="info">
             <h2>Hola, soy Rubén</h2>
@@ -72,7 +27,7 @@
 
 </section>
 
-<!-- Seccion Acerca de -->
+<!-- Sección Acerca de -->
 <section class="about section" id="about">
     <div class="container flex-center">
         <h1 class="section-title-01">Acerca de mí</h1>
@@ -305,8 +260,8 @@
                         <div class="service-modal-body">
                             <i class="fas fa-times modal-close-btn"></i>
                             <h3>Branding & desing</h3>
-                            <h4>¡Qué es Brand & desing?</h4>
-                            <p>Puede ser definido como una de las prácticas más importantes en el mundo del mercadeo
+                            <h4>¿Qué es Brand & desing?</h4>
+                            <p>Puede ser definida como una de las prácticas más importantes en el mundo del mercadeo
                                 por medio de la creación del nombre, logo, diseño y elementos simbólicos relacionados
                                 con la identidad distintiva de una empresa y sus productos.</p>
                             <h4>¿Qué podemos hacer?</h4>
@@ -477,57 +432,4 @@
         </div>
     </div>
 </section>
-
-
-<!-- Footer -->
-<footer>
-    <div class="footer-container">
-        <div class="about group">
-            <h2>Rubén</h2>
-            <p>Full Stack web developer Jr.</p>
-            <a href="{% url 'main:home' %}">Sobre mí</a>
-        </div>
-        <div class="hr"></div>
-        <div class="info group">
-            <h3>Más</h3>
-            <ul>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#portfolio">Portafolio</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </div>
-        <div class="hr"></div>
-        <div class="follow group">
-            <h3>Sígueme</h3>
-            <ul>
-                <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                <li><a href=""><i class="fab fa-twitter"></i></a></li>
-            </ul>
-
-        </div>
-    </div>
-    <div class="footer-copyright group">
-        <p>La constancia debe ser la constante de todos los días</p>
-    </div>
-</footer>
-
-<!-- Sección de scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.2/swiper-bundle.min.js"></script>
-
-<script src="{% static 'principal.js' %}"></script>
-<script type="text/javascript" src="{% static 'vanilla-tilt.js' %}"></script>
-<script>
-        VanillaTilt.init(document.querySelectorAll(".card"), {
-            max: 25,
-            speed: 400,
-            glare: true,
-            "max-glare": 1,
-        });
-
-
-</script>
-
-</body>
-</html>
+{% endblock %}
