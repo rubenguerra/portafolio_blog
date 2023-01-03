@@ -2,7 +2,7 @@
 
 <!-- Blog carusel -->
 <section>
-    <div class="blog" style="background-image: url({% static 'insumos/imagen_editada.jpg' %});   height: 90vh;">
+    <div class="blog" style="background-image: url({% static 'insumos/imagen_editada.jpg' %});   height: 100vh;">
         <div class="contenedor">
             <div class="owl-carousel owl-theme blog-post">
 
@@ -17,7 +17,7 @@
                         <h3>{{ post.titulo }}</h3> -->
                         <h2><a href="{{ post.get_absolute_url }}">{{ post.titulo }}</a></h2>
                         <button class="btn btn-blog">{{ post.categoria }}</button>
-                        <span>5 minutos.</span>
+                        <!--<span>5 minutos.</span>-->
                     </div>
                 </div>
 

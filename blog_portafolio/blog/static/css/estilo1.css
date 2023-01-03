@@ -229,16 +229,18 @@ main .site-title .btn:hover {
   color: white;
   border: white;
 } */
-/* Seccion del carrusel blog */
 
+
+/* Sección del carrusel blog */
+/*
 main .blog {
   background: url("/insumos/imagen_secundaria.jpg");
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
   width: 100%;
-  background-size: 100%; /*Puse color al fondo*/
-}
+  background-size: 100%; /*Puse color al fondo
+} */
 /*
 main .blog:before {
   content: "";
