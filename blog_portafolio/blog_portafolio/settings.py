@@ -31,7 +31,20 @@ SECRET_KEY = 'django-insecure-_m_7ucjkb#-&&6ymb(^0dlt$6b!2cz!yo60=gum0v9dntspqxx
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+DEBUG = True
+
 ALLOWED_HOSTS = []
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog_portafolio',
+        'USER': 'Ruben',
+        'PASSWORD': 'ruben9981143',
+        'HOST': 'blog-backend.cfk8cqorouzp.sa-east-1.rds.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
@@ -134,7 +147,6 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/mediafiles/'
 MEDIA_ROOT = BASE_DIR / 'mediafiles/'
 
-
 # CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
 # Default primary key field type
@@ -211,3 +223,13 @@ CKEDITOR_CONFIGS = {
 }
 
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+AWS_ACCESS_KEY_ID = 'AKIAZVIRZUBHFI5HOINS'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'blog-portafolio'
+AWS_S3_SIGNATURE_NAME = 's3v4'
+AWS_S3_REGION_NAME = 'sa-east-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
