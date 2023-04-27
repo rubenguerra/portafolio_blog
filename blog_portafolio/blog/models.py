@@ -79,7 +79,6 @@ class Post(ModeloBase):
     imagen_referencial = models.ImageField('Imagen Referencial', upload_to='imagenes/', max_length=255)
     publicado = models.BooleanField('Publicado / No Publicado', default=False)
     fecha_publicacion = models.DateTimeField('Fecha de Publicación', default=timezone.now)
-    dataset = models.FileField(blank=True, null=True, upload_to='dataset/')
     objects = models.Manager()  # El administrador por defecto
     publico = AdminPublicado()  # Administrador construido
     tags = TaggableManager()  # Permite usar palabras clave en nuestros posts.

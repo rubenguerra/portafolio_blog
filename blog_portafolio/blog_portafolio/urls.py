@@ -35,8 +35,8 @@ sitemaps = {
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('', include('main.urls', namespace='main')),
-    path('blog/', include('blog.urls', namespace='blog')),
+    path('', include('blog.urls', namespace='blog')),
+    path('main/', include('main.urls', namespace='main')),
     # path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
     # path('agregar/post', blog_views.add_post, name='add_post'),
