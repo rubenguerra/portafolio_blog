@@ -6,14 +6,14 @@ from .models import Post
 
 class LatestPostsFeed(Feed):
     title = 'IA Blog'
-    link = reverse_lazy('list')
+    link = reverse_lazy('blog:post_list')  # Chequear.
     description = 'Nuevos posts de mi blog.'
 
     def items(self):
-        return Post.publicado.all()[:5]
+        return Post.publico.all()[:5]
 
     def item_title(self, item):
         return item.titulo
 
     def item_description(self, item):
-        return truncatewords(item.body, 30)
+        return truncatewords(item.descripcion, 30)  # Podría ser contenido en vez de descripción.

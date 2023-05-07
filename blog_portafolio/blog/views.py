@@ -186,7 +186,7 @@ def buscar_post(request):
 
     return render(request, "buscar.html", {"form": form, "texto_buscado": texto_buscado, "posts": posts})
 
-
+""""""
 """
 def detalles_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -291,7 +291,7 @@ class ContactView(FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, "Gracias. Estaremos en contacto pronto...")
+        messages.success(self.request, "Gracias. Estaremos en contacto pronto...") # Añadir el mensaje en el template
         return super().form_valid(form)
 
 

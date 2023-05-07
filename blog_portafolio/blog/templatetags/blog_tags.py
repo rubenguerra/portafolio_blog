@@ -18,5 +18,6 @@ def mostrar_ultimos_posts(count=5):
 
 @register.inclusion_tag('blog/mas_comentados.html')
 def get_posts_mas_comentados(count=5):
-    mas_comentados = Post.publico.annotate(total_comments=Count('comentarios')).order_by('-total_comments')[:count]
+    mas_comentados = Post.publico.annotate(total_comentarios=Count('comentarios')).order_by('-total_comentarios')[
+                     :count]
     return {'mas_comentados': mas_comentados, 'cuenta': count}

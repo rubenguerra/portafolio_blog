@@ -1,14 +1,9 @@
-from django.contrib.sitemaps.views import sitemap
-from django.urls import path, include
+from django.urls import path
 from .feeds import LatestPostsFeed
-from .sitemaps import PostSitemaps
 
 from .views import *
 
 app_name = 'blog'
-sitemaps = {
-    'posts': PostSitemaps,
-}
 
 urlpatterns = [
     path('', Inicio.as_view(), name='index'),
@@ -23,7 +18,6 @@ urlpatterns = [
     path('suscriptores/nuevo/', suscribir, name='suscriptor_crear'),
     path('buscar-post', buscar_post, name='buscar'),
     # path('posts/<int:pk>/', detalles_post, name='detalles_post'),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 
     path('list/', post_list, name='post_list'),
     path('tag/<slug:tag_slug>/', post_list, name='post_list_by_tag'),
