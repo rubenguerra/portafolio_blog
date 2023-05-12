@@ -20,12 +20,7 @@ class Dev(Configuration):
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
     BASE_DIR = Path(__file__).resolve().parent.parent
 
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    EMAIL_USE_TLS = True
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = 'lcdorubenguerra@gmail.com'  # Email que se le da acceso para responder
-    EMAIL_HOST_PASSWORD = 'ruben9981143'  # contraseña de mi correo
-    EMAIL_PORT = 587  # Puerto que se va a utilizar
+
 
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -39,7 +34,7 @@ class Dev(Configuration):
 
     ALLOWED_HOSTS = values.ListValue([])
 
-    DATABASES = {'default': dj_database_url.parse('mysql://root:9981143@localhost:3306/blog_portafolio')}
+    DATABASES = {}
 
     CKEDITOR_UPLOAD_PATH = 'uploads/'
 
@@ -134,16 +129,11 @@ class Dev(Configuration):
     # Static files (CSS, JavaScript, Images)
     # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-    # STATICFILES_DIRS = [
-    #    os.path.join(BASE_DIR, 'static'),
-    #    os.path.join(BASE_DIR, 'media')
-    # ]
-
     STATIC_URL = 'staticfiles/'
-    STATIC_ROOT = BASE_DIR / 'staticfiles'
+    STATIC_ROOT = values.Value()
 
-    MEDIA_URL = '/mediafiles/'
-    MEDIA_ROOT = BASE_DIR / 'mediafiles/'
+    MEDIA_URL = 'mediafiles/'
+    MEDIA_ROOT = values.Value(BASE_DIR / 'media/')
 
     # CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
