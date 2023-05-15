@@ -34,7 +34,7 @@ class Dev(Configuration):
 
     ALLOWED_HOSTS = values.ListValue([])
 
-    DATABASES = {}
+    DATABASES = {'default': dj_database_url.parse('mysql://root:9981143@localhost:3306/blog_portafolio')}
 
     CKEDITOR_UPLOAD_PATH = 'uploads/'
 
