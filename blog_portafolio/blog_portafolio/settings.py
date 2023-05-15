@@ -34,7 +34,7 @@ class Dev(Configuration):
 
     ALLOWED_HOSTS = values.ListValue([])
 
-    DATABASES = {}
+    DATABASES = {'default': dj_database_url.parse('mysql://root:9981143@localhost:3306/blog_portafolio')}
 
     CKEDITOR_UPLOAD_PATH = 'uploads/'
 
@@ -130,10 +130,10 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
     STATIC_URL = 'staticfiles/'
-    STATIC_ROOT = values.Value()
+    # STATIC_ROOT = values.Value()
 
     MEDIA_URL = 'mediafiles/'
-    MEDIA_ROOT = values.Value(BASE_DIR / 'media/')
+    # MEDIA_ROOT = values.Value(BASE_DIR / 'media/')
 
     # CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 
