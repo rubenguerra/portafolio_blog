@@ -18,10 +18,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from blog.sitemaps import PostSitemaps
+from blog.sitemaps import PostSitemap
 
 sitemaps = {
-    'posts': PostSitemaps,
+    'posts': PostSitemap,
 }
 
 urlpatterns = [
@@ -30,6 +30,8 @@ urlpatterns = [
     path('', include('blog.urls', namespace='blog')),
     path('main/', include('main.urls', namespace='main')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
+    path('django-check-seo/', include('django_check_seo.urls')),
 
     # path('agregar/post', blog_views.add_post, name='add_post'),
     # path('editar/post/<int:post_id', blog_views.edit_post, name='add_post')

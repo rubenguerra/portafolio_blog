@@ -1,9 +1,0 @@
-Description=Blog Gunicorn Socket
-
-[Socket]
-ListenStream=/run/gunicorn-blog.sock
-User=www-data
-Mode=600
-
-[Install]
-WantedBy=sockets.target

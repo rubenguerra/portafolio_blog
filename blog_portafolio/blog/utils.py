@@ -13,8 +13,8 @@ def get_filename(filename):
 def consulta(id):
     try:
         return Post.objects.get(id=id)
-    except:
-        return None
+    except None:
+        pass
 
 
 def generarCategoria(request, nombre_categoria):

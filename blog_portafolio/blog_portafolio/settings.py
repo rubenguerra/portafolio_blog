@@ -20,8 +20,6 @@ class Dev(Configuration):
     # Build paths inside the project like this: BASE_DIR / 'subdir'.
     BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -38,13 +36,13 @@ class Dev(Configuration):
 
     CKEDITOR_UPLOAD_PATH = 'uploads/'
 
-    SITE_ID = 1
-
     # Application definition
 
     INSTALLED_APPS = [
         'django.contrib.admin',
         'django.contrib.auth',
+        'django.contrib.sites',
+        'django.contrib.sitemaps',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
         'django.contrib.messages',
@@ -55,10 +53,15 @@ class Dev(Configuration):
         'blog.apps.BlogConfig',
         'main.apps.MainConfig',
         'taggit',
-        'django.contrib.sites',
-        'django.contrib.sitemaps',
-        'debug_toolbar'
+        'debug_toolbar',
+
+        'cms',
+        'menus',
+        'treebeard',
+        'django_check_seo',
     ]
+
+    SITE_ID = 1
 
     MIDDLEWARE = [
         'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -130,9 +133,11 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
     STATIC_URL = 'staticfiles/'
+    STATIC_ROOT = BASE_DIR / 'staticfiles/'
     # STATIC_ROOT = values.Value()
 
     MEDIA_URL = 'mediafiles/'
+    MEDIA_ROOT = BASE_DIR / 'mediafiles/'
     # MEDIA_ROOT = values.Value(BASE_DIR / 'media/')
 
     # CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
@@ -141,6 +146,11 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+    # CONFIGURACION DE REDIS
+    REDIS_HOST = 'localhost'
+    REDIS_PORT = 6379
+    REDIS_DB = 0
 
     # Ckeditor
     CKEDITOR_CONFIGS = {
@@ -174,7 +184,7 @@ class Dev(Configuration):
                 '/',
                 {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
                 {'name': 'colors', 'items': ['TextColor', 'BGColor']},
-                {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+                {'name': 'tools', 'items': ['ShowBlocks']},
                 {'name': 'about', 'items': ['About']},
                 '/',  # put this to force next toolbar on new line
                 {'name': 'yourcustomtools', 'items': [
@@ -192,7 +202,7 @@ class Dev(Configuration):
             # 'filebrowserWindowHeight': 725,
             # 'filebrowserWindowWidth': 940,
             # 'toolbarCanCollapse': True,
-            'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+            'mathJaxLib': 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML',
             'tabSpaces': 4,
             'extraPlugins': ','.join([
                 'uploadimage',  # the upload image feature

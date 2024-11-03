@@ -1,14 +1,17 @@
 import random
 
-from django.conf.global_settings import EMAIL_HOST_USER
+# from django.conf.global_settings import EMAIL_HOST_USER
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.views.generic import ListView, DetailView, FormView
+from django.views.generic.edit import FormView
+from django.views.generic import ListView, DetailView
 from django.db.models import Count
 from django.core.mail import send_mail
 from taggit.models import Tag
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
+
+from django.http import HttpResponse
 
 from .models import *  # RedesSociales, Web
 from .utils import *
@@ -34,15 +37,6 @@ def post_list(request, tag_slug=None):
     return render(request, 'blog/lista.html', {'page': page,
                                                'posts': posts,
                                                'tag': tag})
-
-
-def post_detail(request, year, month, day, post):
-    post = get_object_or_404(Post, slug=post,
-                             estado=True,
-                             fecha_publicacion__year=year,
-                             fecha_publicacion__month=month,
-                             fecha_publicacion__day=day)
-    return render(request, 'blog:post_detail', {'post': post})
 
 
 class Inicio(ListView):
@@ -157,7 +151,7 @@ class FormularioContacto(View):
             contexto = {
                 'form': form,
             }
-            return render(request, 'contacto', contexto)
+            return render(request, 'contacto.html', contexto)
 
 
 def buscar_post(request):
@@ -186,48 +180,35 @@ def buscar_post(request):
 
     return render(request, "buscar.html", {"form": form, "texto_buscado": texto_buscado, "posts": posts})
 
-""""""
-"""
-def detalles_post(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-
-    # Listado de comentarios para este post
-    comentarios = post.comentarios.filter(estado=True)  # Agregar un publicado = True
-
-    nuevo_comentario = None
-
-    if request.method == 'POST':
-        # Un comentario fue realizado
-        comentario_form = ComentarioForm(data=request.POST)
-        if comentario_form.is_valid():
-            # Se crea el comentario pero no se guarda en la base de datos aun
-            nuevo_comentario = comentario_form.save(commit=False)
-            # Se asigna al post el comentario
-            nuevo_comentario.post = post
-            # Guarda el comentario en la base de datos
-            nuevo_comentario.save()
-    else:
-        comentario_form = ComentarioForm()
-
-    contexto = {'post': post,
-                'comentarios': comentarios,
-                'nuevo_comentario': nuevo_comentario,
-                'comentario_form': comentario_form}
-    return render(request, "detalles_post.html", contexto)
-
-"""
 
 
 class DetallePost(DetailView):
-    def get(self, request, slug, *args, **kwargs):
-        try:
-            posts = get_object_or_404(Post, slug=slug, estado=True)
+    form_class = ComentarioForm
+    template_name = 'comentarios.html'
 
-        except:
-            posts = None
+    def get(self, request, slug):
+        post = get_object_or_404(Post, slug=slug, estado=True)
 
         # Listado de comentarios para este post
-        comentarios = posts.comentarios.filter(estado=True)
+        comentarios = post.comentarios.filter(activo=True)
+        comentario_form = ComentarioForm()
+
+        post_tags_ids = post.tags.values_list('id', flat=True)
+        similar_posts = Post.objects.filter(tags__in=post_tags_ids).exclude(id=post.id)  # Excluye el post presente
+        similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publicado')[:4]
+
+        contexto = {'post': post,
+                    'comentarios': comentarios,
+                    'similar_posts': similar_posts,
+                    'comentario_form': comentario_form}
+
+        return render(request, "blog/post.html", contexto)
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug, estado=True)
+
+        # Listado de comentarios para este post
+        comentarios = post.comentarios.filter(activo=True)
 
         nuevo_comentario = None
 
@@ -238,22 +219,22 @@ class DetallePost(DetailView):
                 # Se crea el comentario pero no se guarda en la base de datos aun
                 nuevo_comentario = comentario_form.save(commit=False)
                 # Se asigna al post el comentario
-                nuevo_comentario.posts = posts
+                nuevo_comentario.post = post
                 # Guarda el comentario en la base de datos
                 nuevo_comentario.save()
         else:
             comentario_form = ComentarioForm()
 
         # Lista de posts similares
-        post_tags_ids = posts.tags.values_list('id', flat=True)
-        similar_posts = Post.objects.filter(tags__in=post_tags_ids).exclude(id=posts.id)  # Excluye el post presente
+        post_tags_ids = post.tags.values_list('id', flat=True)
+        similar_posts = Post.objects.filter(tags__in=post_tags_ids).exclude(id=post.id)  # Excluye el post presente
         similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publicado')[:4]
 
-        contexto = {'post': posts,
+        contexto = {'post': post,
                     'comentarios': comentarios,
+                    'similar_posts': similar_posts,
                     'nuevo_comentario': nuevo_comentario,
-                    'comentario_form': comentario_form,
-                    'similar_posts': similar_posts}
+                    'comentario_form': comentario_form}
 
         return render(request, "blog/post.html", contexto)
 
@@ -264,7 +245,7 @@ def post_share(request, post_id):
     Regresa el post por su id.
     """
     post = get_object_or_404(Post, id=post_id, estado=True, publicado=True)
-    sent = False
+    enviado = False
 
     if request.method == 'POST':
         # Formulario que será enviado
@@ -276,12 +257,12 @@ def post_share(request, post_id):
             subject = f"{cd['nombre']} recomienda que leas este post: {post.titulo}"
             mensaje = f"Lee {post.titulo} este interesante post: {post_url}\n\n" \
                       f"de {cd['nombre']}: {cd['comentario']}"
-            send_mail(subject, mensaje, 'lcdorubenguerra@gmail.com', [cd['a']])
-            sent = True
+            send_mail(subject, mensaje, [cd['email']], [cd['a']])
+            enviado = True
 
     else:
         form = EmailPostForm()
-    return render(request, 'blog/share.html', {'post': post, 'form': form, 'sent': sent})
+    return render(request, 'blog/share.html', {'post': post, 'form': form, 'sent': enviado})
 
 
 class ContactView(FormView):
@@ -291,7 +272,7 @@ class ContactView(FormView):
 
     def form_valid(self, form):
         form.save()
-        messages.success(self.request, "Gracias. Estaremos en contacto pronto...") # Añadir el mensaje en el template
+        messages.success(self.request, "Gracias. Estaremos en contacto pronto...")  # Añadir el mensaje en el template
         return super().form_valid(form)
 
 

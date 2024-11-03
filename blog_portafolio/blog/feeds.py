@@ -5,9 +5,9 @@ from .models import Post
 
 
 class LatestPostsFeed(Feed):
-    title = 'IA Blog'
-    link = reverse_lazy('blog:post_list')  # Chequear.
-    description = 'Nuevos posts de mi blog.'
+    title = 'Inteligencia Artificial'
+    link = reverse_lazy('blog:index')
+    description = 'Nuevos posts en el blog.'
 
     def items(self):
         return Post.publico.all()[:5]

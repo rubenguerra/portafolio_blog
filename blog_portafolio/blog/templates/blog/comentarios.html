@@ -2,7 +2,7 @@
 
 <div class="contenedor">
 
-    {% with comentarios.Count as total_comentarios %}
+    {% with comentarios.count as total_comentarios %}
     <h2>
         <span>Hay {{ total_comentarios }} comentario{{ total_comentarios|pluralize }} a este post.</span>
     </h2>
@@ -29,7 +29,7 @@
 
 <div class="contenedor" data-aos="fade-up" data-aos-delay="200">
 
-    <form method="POST" action="***********" class="form" style="
+    <form method="post" class="form" style="
     width: 100%;
     margin: auto;
     background: #c2e9fb;
@@ -39,11 +39,11 @@
     border-radius: 7px;
     margin-bottom: 1em;
 ">
-        {% csrf_token %}
+
         <h2><span>Añade un nuevo comentario.</span></h2>
         {{ comentario_form.as_p }}
-
-        <p><input type="submit" value="Agregar" style="width: 100%;
+        {% csrf_token %}
+        <p><input type="submit" value="Agregar comentario" style="width: 100%;
     margin-bottom: 20px;
     padding: 5px;
     box-sizing: border-box;

@@ -1,12 +1,11 @@
 {% load static %}
 
-<!-- Blog carusel -->
+<!-- Blog carrusel -->
 <section>
     <div class="blog" style="background-image: url({% static 'insumos/imagen_editada.jpg' %});   height: 100vh;">
         <div class="contenedor">
 
             <div class="owl-carousel owl-theme blog-post">
-
 
                 {% for post in mas_comentados %}
 
@@ -21,10 +20,9 @@
 
                 {% endfor %}
 
-
             </div>
 
-            <!-- FLECHAS DE NAVEGACION DEL CARUSEL -->
+            <!-- FLECHAS DE NAVEGACIÓN DEL CARRUSEL -->
             <div class="owl-navigation">
                 <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
                 <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>

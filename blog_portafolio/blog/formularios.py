@@ -16,10 +16,13 @@ class FormBuscar(forms.Form):
 class ComentarioForm(forms.ModelForm):
     # Formulario de prueba para los comentarios
 
-    nombre = forms.CharField(max_length=25, widget=forms.TextInput(attrs={'cols': 43, 'rows': 1,
-                                                                          'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem; min-height: 1.2rem; font-size: 90%'}))
-    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'cols': 43, 'rows': 1,
-                                                                           'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem; min-height: 1.2rem; font-size: 90%'
+    nombre = forms.CharField(max_length=25,
+                             widget=forms.TextInput(
+                                 attrs={'cols': 43, 'rows': 1,
+                                        'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem; min-height: 1.2rem; font-size: 90%'}))
+    email = forms.EmailField(required=True,
+                             widget=forms.EmailInput(attrs={'cols': 43, 'rows': 1,
+                                                            'style': 'max-width: 99%; min-width: 99%; max-height: 1.2rem; min-height: 1.2rem; font-size: 90%'
                                                                            }))
     contenido = forms.CharField(widget=forms.Textarea(attrs={'cols': 43, 'rows': 10,
                                                              'style': 'max-width: 99%; min-width: 99%; max-height: 10rem; min-height: 5rem; font-size: 90%'
@@ -28,6 +31,28 @@ class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
         fields = ('nombre', 'email', 'contenido',)
+
+
+
+"""
+Esta es una prueba de comentarios a los posts
+tomado de: https://realpython.com/build-a-blog-from-scratch-django/#make-your-blog-look-nice
+
+
+class CommentForm(forms.Form):
+    author = forms.CharField(
+        max_length=60,
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "Your Name"}
+        ),
+    )
+    body = forms.CharField(
+        widget=forms.Textarea(
+            attrs={"class": "form-control", "placeholder": "Leave a comment!"}
+        )
+    )
+
+"""
 
 
 class EmailPostForm(forms.Form):
