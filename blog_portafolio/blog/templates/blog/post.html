@@ -37,20 +37,21 @@
                     <hr>
                     <div class="popular-tags">
                         <p>Este post trata sobre:</p>
-                        <div class="tags flex-row">
-                            <p>
+                        <div class="tags flex-row" >
+
                                 {% for tag in post.tags.all %}
 
                                 <span style="background: var(--sky);
-                                            padding: 0.4rem 1rem;
+                                            padding: 0.5rem 1rem;
                                             border-radius: 3rem;
-                                            margin: 0.1rem 0.2rem;
+                                            margin: 0.2rem;
+
 
                                             ">{{ tag.name | capfirst }}</span>
 
                                 {% if not forloop.last %} {% endif %}
                                 {% endfor %}
-                            </p>
+
 
                         </div>
                         <p>Posts similares:</p>

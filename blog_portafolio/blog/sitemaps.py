@@ -10,4 +10,4 @@ class PostSitemap(Sitemap):
         return Post.publico.all()
 
     def lastmod(self, obj):
-        return obj.fecha_modificacion
+        return obj.fecha_publicacion

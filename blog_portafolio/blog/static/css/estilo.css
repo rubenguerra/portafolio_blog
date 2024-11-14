@@ -1,6 +1,3 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Anton&family=Josefin+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Lexend:wght@200;300;400;500;600&family=Livvic:ital,wght@0,200;0,400;0,500;1,300;1,400&display=swap');
-
 html,
 body {
   overflow-x: hidden;
@@ -71,7 +68,9 @@ span {
 }
 
 .contenedor {
-  margin: 0 /* 1vw; /* lo cambié de 0 y 5vw...tenía font-size de 15px*/
+  margin: .3rem;
+  padding: 0;
+  align-items: center; /* 1vw; /* lo cambié de 0 y 5vw...tenía font-size de 15px*/
 }
 
 .text-gray {
@@ -81,10 +80,11 @@ span {
 p {
   font-family: var(--Lexend);
   color: var(--text-light);
+  line-height: 1.4;
 }
 
 section {
-  margin-bottom: 0.8rem;
+  margin-bottom: .8rem;
 }
 /* Clases globales */
 
@@ -167,70 +167,87 @@ section {
 /* Estilo de la barra de navegación */
 
 /* Contenido principal */
-/* Titulo */
-main .site-title .site-background img {
-  background-repeat: no-repeat;
+
+/* PRUEBA */
+
+.showcase{
   position: relative;
-  background-size: cover;
-   /* width: 110vw;tenía un height de 100hv y antes un width de 100%*/
+  right: 0;
   width: 100%;
-  height: 100hv;
+  min-height: 100vh;
+  padding: 2.5em;
+  display: flex;
+  margin: auto;
+  align-items: center; /*Centra el texto en la pagina*/
+  background: #111;
   color: #fff;
-  padding-top: 0rem;
+  z-index: 2;
 }
 
-main .site-title .contenedor {
+.showcase img{
   position: absolute;
-  top: 1rem;
-  left: 1.2rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
 }
 
-main .site-title h1,
-h3{
-  color: #fff;
-  margin: 0.3rem;
-  /* font-size: 2em; */
-  /* margin: 0.1rem;
-  margin-top: 0.8rem;
-  margin-bottom: 0.8rem; */
+.texto{
+  position: relative;
+  padding-right: 3rem;
+  z-index: 10;
+}
+
+.texto h3{
+  font-size: 1.5em;
+  font-weight: 400;
+  line-height: 1em;
+  padding-right: 1em;
   text-shadow: 0.1rem 0.1rem #333;
 }
 
+.texto h1{
+  font-size: 3em;
+  font-weight: 700;
+  line-height: 1em;
+  text-shadow: 0.1rem 0.1rem #111
+}
 
-main .site-title .btn {
+.texto p{
+  font-size: 1em;
+  margin: 20px 0;
+  font-weight: 400;
+  max-width: 700px;
+  color: white;
+}
+
+.texto a{
+  display: inline-block;
+  font-size: 1em;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+texto .btn {
   margin: 0.2rem;
   background: var(--sky);
 }
 
-main .site-title .btn:hover {
+texto .btn:hover {
   background: transparent;
   border: 1px solid var(--white);
   color: var(--white);
 }
 
-/* main .site-title h3 {
-  color: #fff;
-  text-shadow: 0.1em 0.1em #333;
-} */
 
-/* main .site-title a {
-  background: transparent;
-  border: none;
-  color: var(--sky);
-  border-radius: 2rem;
-  padding: 1rem 3rem;
-  font-family: var(--Josefin);
-} */
+/* Titulo
 
-/* main .site-title a:hover {
-  background: #559be6;
-  color: white;
-  border: white;
-} */
-/* Seccion del carrusel blog */
+/* Sección del carrusel blog */
 
 main .blog {
-  background: url("/insumos/imagen_secundaria.jpg");
   background-repeat: no-repeat;
   background-position: center;
   height: 100vh;
@@ -248,7 +265,7 @@ main .blog:before {
 }
 
 main .blog .blog-post {
-  padding-top: 4.5rem;
+  padding-top: 3.5rem;
 }
 
 main .blog-post .blog-content {
@@ -296,9 +313,9 @@ section .contenedor .owl-nav {
 .owl-theme .owl-nav [class*="owl-"] {
   outline: none;
 }
-/* Seccion del carusel blog */
+/* Sección del carrusel blog */
 
-/* Seccion Contenido */
+/* Sección Contenido */
 
 main .site-content {
   display: grid;
@@ -311,7 +328,7 @@ main .post-content {
 
 main .site-content .post-content > .post-image,
 .post-title {
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
   position: relative;
 }
 
