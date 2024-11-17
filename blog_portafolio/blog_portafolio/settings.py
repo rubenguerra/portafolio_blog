@@ -54,6 +54,7 @@ class Dev(Configuration):
         'main.apps.MainConfig',
         'taggit',
         'debug_toolbar',
+        'django.contrib.postgres',
 
         'cms',
         'menus',

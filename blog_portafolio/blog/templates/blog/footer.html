@@ -19,16 +19,13 @@
         </div>
         <div class="instagram" data-aos="fade-left" data-aos-delay="200">
             <h2>Algunos Posts</h2>
+
+            {% for post in posts %}
             <div class="flex-row">
-                <img src="{% static 'insumos/Blog-post/post-robot1.jpg' %}" alt="insta1">
-                <img src="{% static 'insumos/Blog-post/post-robot2.jpg' %}" alt="insta2">
-                <img src="{% static 'insumos/Blog-post/post-robot3.jpg' %}" alt="insta3">
+                <img class="img" src="{{ post.imagen_referencial.url }}" alt="imagen">
             </div>
-            <div class="flex-row">
-                <img src="{% static 'insumos/Blog-post/post-robot4.jpg' %}" alt="insta4">
-                <img src="{% static 'insumos/Blog-post/post-robot5.jpg' %}" alt="insta5">
-                <img src="{% static 'insumos/Blog-post/post-robot6.jpg' %}" alt="insta6">
-            </div>
+            {% endfor %}
+
         </div>
         <div class="follow" data-aos="fade-left" data-aos-delay="200">
             <h2>Seguir</h2>

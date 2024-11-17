@@ -9,7 +9,7 @@ class SuscriptoresForm(forms.ModelForm):
 
 
 class FormBuscar(forms.Form):
-    busqueda = forms.CharField(required=False, min_length=3)
+    query = forms.CharField(required=False, min_length=3)
     buscar_en = forms.ChoiceField(required=False, choices=(("titulo", "Titulo"), ("autor", "Autor")))
 
 

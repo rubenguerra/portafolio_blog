@@ -10,6 +10,7 @@ from django.core.mail import send_mail
 from taggit.models import Tag
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
 from django.http import HttpResponse
 
@@ -155,7 +156,7 @@ class Inicio(ListView):
         return render(request, 'blog/inicio.html', contexto)
 
     def _get_random_posts(self, queryset):
-        Get random posts for featured section
+        # Get random posts for featured section
         posts_ids = list(queryset.values_list('id', flat=True))
         if len(posts_ids) < 5:  # We need at least 5 posts
             return None
