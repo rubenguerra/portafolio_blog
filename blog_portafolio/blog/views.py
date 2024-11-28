@@ -127,82 +127,13 @@ class Inicio(ListView):
 
         return render(request, 'blog/inicio.html', contexto)
 
-"""
-class Inicio(ListView):
-    def get(self, request, *args, **kwargs):
-        # Get all active and published posts in a single query
-        active_posts = Post.objects.filter(
-            estado=True,
-            publicado=True
-        )
-
-        # Get random posts for featured section
-        random_posts = self._get_random_posts(active_posts)
-        if not random_posts:
-            return render(request, 'blog/inicio.html', {'error': 'No posts available'})
-
-        # Get latest posts by category in a single query
-        latest_category_posts = self._get_latest_category_posts()
-
-        contexto = {
-            'principal': random_posts['principal'],
-            'post1': random_posts['posts'][0],
-            'post2': random_posts['posts'][1],
-            'post3': random_posts['posts'][2],
-            'post4': random_posts['posts'][3],
-            **latest_category_posts
-        }
-
-        return render(request, 'blog/inicio.html', contexto)
-
-    def _get_random_posts(self, queryset):
-        # Get random posts for featured section
-        posts_ids = list(queryset.values_list('id', flat=True))
-        if len(posts_ids) < 5:  # We need at least 5 posts
-            return None
-
-        # Get random posts in a more efficient way
-        random.shuffle(posts_ids)
-
-        
-        return {
-            'principal': selected_posts[0],
-            'posts': [consulta(post) for post in selected_posts[1:5]]
-        }
-
-    def _get_latest_category_posts(self):
-        Get latest post for each category in a single query
-        categories = {
-            'General': 'post_general',
-            'Machine Learning': 'post_machine_learning',
-            'Deep Learning': 'post_deep_learning',
-            'Programacion': 'post_programacion',
-            'Linguistica': 'post_linguistica'
-        }
-
-        # Get all categories in one query
-        category_objects = Categoria.objects.filter(nombre__in=categories.keys())
-        
-        # Get latest posts for all categories in one query
-        latest_posts = Post.objects.filter(
-            estado=True,
-            publicado=True,
-            categoria__in=category_objects
-        ).order_by('categoria', '-fecha_publicacion').distinct('categoria')
-        # distinct('categoria') funciona con PostgreSQL.
-        # Create dictionary with latest posts
-        result = {categories[post.categoria.nombre]: post for post in latest_posts}
-        
-        # Fill in None for categories without posts
-        for category_name, context_key in categories.items():
-            if context_key not in result:
-                result[context_key] = None
-
-        return result
-
-"""
 
 class Listado(ListView):
+    """
+        Vista que despliega una lista de los post filtrados por categoría.
+        Atributos:  categoria.html: Template usado para generar la vista.
+                    contexto: Variables de contexto usados en el template.
+    """
 
     def get(self, request, nombre_categoria, *args, **kwargs):
         contexto = generarCategoria(request, nombre_categoria)
@@ -254,7 +185,6 @@ def buscar_post(request):
                     posts.add(post)
 
     return render(request, "buscar.html", {"form": form, "texto_buscado": texto_buscado, "posts": posts})
-
 
 
 class DetallePost(DetailView):

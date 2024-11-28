@@ -7,7 +7,7 @@
         <div class="post-info flex-row">
 
             <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{ post.fecha_publicacion }}</span>
-            <span>{{ post.comentarios.count }} comentario</span>
+            <span>{{ post.comentarios.count }} comentario{{ post.comentarios.count|pluralize }}</span>
         </div>
     </div>
 

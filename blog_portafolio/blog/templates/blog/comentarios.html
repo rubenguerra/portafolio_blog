@@ -3,9 +3,13 @@
 <div class="contenedor">
 
     {% with comentarios.count as total_comentarios %}
+    {% if comentarios.count == 0 %}
+    <p>No hay ningún comentario aún. Sé el primero en comentar</p>
+    {% else %}
     <h2>
         <span>Hay {{ total_comentarios }} comentario{{ total_comentarios|pluralize }} a este post.</span>
     </h2>
+    {% endif %}
     {% endwith %}
 
     {% for comentario in comentarios %}
@@ -17,8 +21,7 @@
                 {{ comentario.contenido|linebreaks }}
                  </span>
     </div>
-    {% empty %}
-    <p>No hay ningún comentario aún.</p>
+
     {% endfor %}
 
     {% if nuevo_comentario %}
