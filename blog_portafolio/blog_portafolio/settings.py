@@ -227,7 +227,7 @@ class Dev(Configuration):
         }
     }
 
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+    #STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 
 class Prod(Dev):
