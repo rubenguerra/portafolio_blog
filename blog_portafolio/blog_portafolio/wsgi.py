@@ -11,7 +11,7 @@ import os
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog_portafolio.settings')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'blog_portafolio.settings.prod')
+os.environ.setdefault('DJANGO_CONFIGURATION', 'blog_portafolio.settings.Prod')
 
 from configurations.wsgi import get_wsgi_application
 
