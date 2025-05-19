@@ -22,7 +22,7 @@ $(document).ready(function () {
     $nav.toggleClass("collapse");
   });
 
-  // Owl-carusel para el blog
+  // Owl-carrusel para el blog
   $(".owl-carousel").owlCarousel({
     loop: true,
     autoplay: false,

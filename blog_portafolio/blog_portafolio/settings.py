@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-from configurations import Configuration, values
+from configurations import Configuration, values, management
 import dj_database_url
 
 
@@ -55,7 +55,6 @@ class Dev(Configuration):
         'main.apps.MainConfig',
         'taggit',
         'debug_toolbar',
-        'django.contrib.postgres',
 
         'cms',
         'menus',
@@ -135,12 +134,11 @@ class Dev(Configuration):
     # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
     STATIC_URL = 'staticfiles/'
-    # STATIC_ROOT = BASE_DIR / 'staticfiles/'
+    #STATIC_ROOT = BASE_DIR / 'staticfiles/'
     STATIC_ROOT = values.Value()
 
     MEDIA_URL = 'mediafiles/'
-    # MEDIA_ROOT = BASE_DIR / 'mediafiles/'
-    MEDIA_ROOT = values.Value(BASE_DIR / 'media/')
+    MEDIA_ROOT = values.Value(BASE_DIR / 'mediafiles/')
 
     # CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
 

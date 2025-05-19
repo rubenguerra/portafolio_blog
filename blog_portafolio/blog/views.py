@@ -1,6 +1,6 @@
 import random
 
-# from django.conf.global_settings import EMAIL_HOST_USER
+from django.conf.global_settings import EMAIL_HOST_USER
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic.edit import FormView
@@ -10,7 +10,7 @@ from django.core.mail import send_mail
 from taggit.models import Tag
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib import messages
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+# from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
 from django.http import HttpResponse
 
